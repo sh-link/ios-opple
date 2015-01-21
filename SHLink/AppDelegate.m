@@ -17,6 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    struct SHDetectReply head;
+//    head.type[2] = 3;
+    NSLog(@"%lu",sizeof(head));
     return YES;
 }
 

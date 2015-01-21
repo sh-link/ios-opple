@@ -14,6 +14,7 @@
 		35CD44721A6E5F5300F6507F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35CD44711A6E5F5300F6507F /* Images.xcassets */; };
 		35CD44751A6E5F5300F6507F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35CD44731A6E5F5300F6507F /* LaunchScreen.xib */; };
 		35CD44811A6E5F5300F6507F /* SHLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD44801A6E5F5300F6507F /* SHLinkTests.m */; };
+		35CD448E1A6F3EE000F6507F /* SHLinkPacketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD448D1A6F3EE000F6507F /* SHLinkPacketTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		35CD447A1A6E5F5300F6507F /* SHLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CD447F1A6E5F5300F6507F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35CD44801A6E5F5300F6507F /* SHLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLinkTests.m; sourceTree = "<group>"; };
+		35CD448C1A6E7FBA00F6507F /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Packet.h; path = NetworkModel/Packet.h; sourceTree = "<group>"; };
+		35CD448D1A6F3EE000F6507F /* SHLinkPacketTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLinkPacketTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		35CD44631A6E5F5300F6507F /* SHLink */ = {
 			isa = PBXGroup;
 			children = (
+				35CD448A1A6E7D7500F6507F /* NetworkModel */,
 				35CD44681A6E5F5300F6507F /* AppDelegate.h */,
 				35CD44691A6E5F5300F6507F /* AppDelegate.m */,
 				35CD446B1A6E5F5300F6507F /* ViewController.h */,
@@ -105,6 +109,7 @@
 		35CD447D1A6E5F5300F6507F /* SHLinkTests */ = {
 			isa = PBXGroup;
 			children = (
+				35CD448D1A6F3EE000F6507F /* SHLinkPacketTests.m */,
 				35CD44801A6E5F5300F6507F /* SHLinkTests.m */,
 				35CD447E1A6E5F5300F6507F /* Supporting Files */,
 			);
@@ -117,6 +122,14 @@
 				35CD447F1A6E5F5300F6507F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		35CD448A1A6E7D7500F6507F /* NetworkModel */ = {
+			isa = PBXGroup;
+			children = (
+				35CD448C1A6E7FBA00F6507F /* Packet.h */,
+			);
+			name = NetworkModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35CD448E1A6F3EE000F6507F /* SHLinkPacketTests.m in Sources */,
 				35CD44811A6E5F5300F6507F /* SHLinkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
