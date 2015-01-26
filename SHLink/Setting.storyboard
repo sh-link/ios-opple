@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Wifi Setting View Controller-->
+        <scene sceneID="xra-xk-n6S">
+            <objects>
+                <viewController id="nEE-Pt-VvO" customClass="WifiSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="90Q-av-L3G"/>
+                        <viewControllerLayoutGuide type="bottom" id="Re5-JT-fGE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7ha-MG-mgL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="HOME_LINK_68" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rmL-2f-oVq">
+                                <rect key="frame" x="41" y="28" width="518" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="P2G-Xm-887"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="HOME_LINK_68" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XR-Li-BOy">
+                                <rect key="frame" x="41" y="160" width="518" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dab-iW-1tE"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="HOME_LINK_68" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xCQ-iQ-b3V">
+                                <rect key="frame" x="41" y="94" width="518" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VQt-L3-hq5"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="rmL-2f-oVq" firstAttribute="leading" secondItem="7ha-MG-mgL" secondAttribute="leadingMargin" constant="25" id="I8e-lx-JD5"/>
+                            <constraint firstItem="rmL-2f-oVq" firstAttribute="top" secondItem="90Q-av-L3G" secondAttribute="bottom" constant="8" id="gec-TT-b91"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rmL-2f-oVq" secondAttribute="trailing" constant="25" id="r9b-mb-CjF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIV-z3-N5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1029" y="-550"/>
+        </scene>
+    </scenes>
+</document>

@@ -9,8 +9,6 @@
 #ifndef SHLink_Packet_h
 #define SHLink_Packet_h
 
-#import <Foundation/Foundation.h>
-
 #define _UINT8          unsigned char
 
 #define VERSION_LEN     4
@@ -21,7 +19,7 @@
 #define DESC_LEN        32
 #define RESE_LEN        4
 #define USER_ID_LEN     16
-#define CHALLENGE_LEN   16
+#define CHALLENGE_LEN   8
 #define LEN_LEN         4
 #define STATS_LEN       4
 
@@ -32,21 +30,20 @@
 #define SHPacketType_Control        0x00000300
 #define SHPacketType_ControlReply   0x00000301
 
+#define SHRequestType_GetClientList         1
+#define SHRequestType_SetSsid               2
+#define SHRequestType_SetWan                3
+#define SHRequestType_SetLan                4
+#define SHRequestType_GetNetworkInfo        5
+#define SHRequestType_SetAccount            6
+#define SHRequestType_CheckFirmwareUpdate   7
+#define SHRequestType_UpdateFirmware        8
+#define SHRequestType_GetFirmwareLog        9
+#define SHRequestType_GetWlanSchedule       10
+#define SHRequestType_PowerOff              12
 
-typedef NS_ENUM(NSUInteger, SHRequestType) {
-    SHRequestType_getClientList = 1,
-    SHRequestType_setSsid = 2,
-    SHRequestType_setWan = 3,
-    SHRequestType_setLan = 4,
-    SHRequestType_getNetworkInfo = 5,
-    SHRequestType_setAccount = 6,
-    SHRequestType_checkFirmwareUpdate = 7,
-    SHRequestType_updateFirmware = 8,
-    SHRequestType_getFirmwareLog = 9,
-    SHRequestType_getWlanSchedule = 10,
-    SHRequestType_powerOff = 12,
-};
-
+#define PACKET_CHECK_VERSION(_version, _packet) (*(int *)(((_SHHeader *)(_packet))->version) == htonl(_version))
+#define PACKET_CHECK_TYPE(_type, _packet) (*(int *)(((_SHHeader *)(_packet))->type) == htonl(_type))
 
 #pragma pack(1)
 
@@ -110,7 +107,5 @@ typedef struct SHChallenge _SHControl;
 typedef struct SHChallengeReply _SHControlRely;
 
 #pragma pack()
-
-
 
 #endif

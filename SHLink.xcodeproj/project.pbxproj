@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35B7A3B71A70F1E000E909C5 /* SHDeviceSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3B61A70F1E000E909C5 /* SHDeviceSearcher.m */; };
+		35B7A3BB1A70F6AE00E909C5 /* SHDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */; };
+		35B7A3BE1A70F6C800E909C5 /* SHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BD1A70F6C800E909C5 /* SHRouter.m */; };
+		35B7A3C21A70FB2F00E909C5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3C01A70FB2F00E909C5 /* Reachability.m */; };
 		35CD44671A6E5F5300F6507F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD44661A6E5F5300F6507F /* main.m */; };
 		35CD446A1A6E5F5300F6507F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD44691A6E5F5300F6507F /* AppDelegate.m */; };
 		35CD446D1A6E5F5300F6507F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD446C1A6E5F5300F6507F /* ViewController.m */; };
@@ -15,6 +19,17 @@
 		35CD44751A6E5F5300F6507F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35CD44731A6E5F5300F6507F /* LaunchScreen.xib */; };
 		35CD44811A6E5F5300F6507F /* SHLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD44801A6E5F5300F6507F /* SHLinkTests.m */; };
 		35CD448E1A6F3EE000F6507F /* SHLinkPacketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD448D1A6F3EE000F6507F /* SHLinkPacketTests.m */; };
+		35D40E221A75EB810055E7CC /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E1A1A75EB810055E7CC /* ALView+PureLayout.m */; };
+		35D40E231A75EB810055E7CC /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E1C1A75EB810055E7CC /* NSArray+PureLayout.m */; };
+		35D40E241A75EB810055E7CC /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E1E1A75EB810055E7CC /* NSLayoutConstraint+PureLayout.m */; };
+		35D40E261A75EBC40055E7CC /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D40E251A75EBC40055E7CC /* Setting.storyboard */; };
+		35D40E2B1A75ED270055E7CC /* WifiSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E2A1A75ED270055E7CC /* WifiSettingViewController.m */; };
+		35D40E2E1A75ED400055E7CC /* WanSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E2D1A75ED400055E7CC /* WanSettingViewController.m */; };
+		35D40E311A75ED540055E7CC /* LanSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E301A75ED540055E7CC /* LanSettingViewController.m */; };
+		35D40E351A7631E50055E7CC /* des.c in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E341A7631E50055E7CC /* des.c */; };
+		35EB60441A723490003C63DB /* SHLinkDeviceSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EB60431A723490003C63DB /* SHLinkDeviceSearchTests.m */; };
+		35EB60461A72443B003C63DB /* Packet.c in Sources */ = {isa = PBXBuildFile; fileRef = 35EB60451A72443B003C63DB /* Packet.c */; };
+		35EB60491A737CF2003C63DB /* md5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35EB60481A737CF2003C63DB /* md5.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35B7A3B51A70F1E000E909C5 /* SHDeviceSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDeviceSearcher.h; path = NetworkModel/SHDeviceSearcher.h; sourceTree = "<group>"; };
+		35B7A3B61A70F1E000E909C5 /* SHDeviceSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDeviceSearcher.m; path = NetworkModel/SHDeviceSearcher.m; sourceTree = "<group>"; };
+		35B7A3B91A70F6AE00E909C5 /* SHDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDevice.h; path = Model/SHDevice.h; sourceTree = "<group>"; };
+		35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDevice.m; path = Model/SHDevice.m; sourceTree = "<group>"; };
+		35B7A3BC1A70F6C800E909C5 /* SHRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHRouter.h; path = Model/SHRouter.h; sourceTree = "<group>"; };
+		35B7A3BD1A70F6C800E909C5 /* SHRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHRouter.m; path = Model/SHRouter.m; sourceTree = "<group>"; };
+		35B7A3C01A70FB2F00E909C5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Tool/Reachability.m; sourceTree = "<group>"; };
+		35B7A3C11A70FB2F00E909C5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Tool/Reachability.h; sourceTree = "<group>"; };
 		35CD44611A6E5F5300F6507F /* SHLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CD44651A6E5F5300F6507F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35CD44661A6E5F5300F6507F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +66,29 @@
 		35CD44801A6E5F5300F6507F /* SHLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLinkTests.m; sourceTree = "<group>"; };
 		35CD448C1A6E7FBA00F6507F /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Packet.h; path = NetworkModel/Packet.h; sourceTree = "<group>"; };
 		35CD448D1A6F3EE000F6507F /* SHLinkPacketTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLinkPacketTests.m; sourceTree = "<group>"; };
+		35D40E191A75EB810055E7CC /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
+		35D40E1A1A75EB810055E7CC /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
+		35D40E1B1A75EB810055E7CC /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		35D40E1C1A75EB810055E7CC /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		35D40E1D1A75EB810055E7CC /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		35D40E1E1A75EB810055E7CC /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		35D40E1F1A75EB810055E7CC /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
+		35D40E201A75EB810055E7CC /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
+		35D40E211A75EB810055E7CC /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
+		35D40E251A75EBC40055E7CC /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		35D40E291A75ED270055E7CC /* WifiSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WifiSettingViewController.h; path = Settings/WifiSettingViewController.h; sourceTree = "<group>"; };
+		35D40E2A1A75ED270055E7CC /* WifiSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WifiSettingViewController.m; path = Settings/WifiSettingViewController.m; sourceTree = "<group>"; };
+		35D40E2C1A75ED400055E7CC /* WanSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WanSettingViewController.h; path = Settings/WanSettingViewController.h; sourceTree = "<group>"; };
+		35D40E2D1A75ED400055E7CC /* WanSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WanSettingViewController.m; path = Settings/WanSettingViewController.m; sourceTree = "<group>"; };
+		35D40E2F1A75ED540055E7CC /* LanSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanSettingViewController.h; path = Settings/LanSettingViewController.h; sourceTree = "<group>"; };
+		35D40E301A75ED540055E7CC /* LanSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanSettingViewController.m; path = Settings/LanSettingViewController.m; sourceTree = "<group>"; };
+		35D40E321A7631E50055E7CC /* general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = general.h; path = Tool/general.h; sourceTree = "<group>"; };
+		35D40E331A7631E50055E7CC /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = des.h; path = Tool/des.h; sourceTree = "<group>"; };
+		35D40E341A7631E50055E7CC /* des.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = des.c; path = Tool/des.c; sourceTree = "<group>"; };
+		35EB60431A723490003C63DB /* SHLinkDeviceSearchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLinkDeviceSearchTests.m; sourceTree = "<group>"; };
+		35EB60451A72443B003C63DB /* Packet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Packet.c; path = NetworkModel/Packet.c; sourceTree = "<group>"; };
+		35EB60471A737CF2003C63DB /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = md5.h; path = Tool/md5.h; sourceTree = "<group>"; };
+		35EB60481A737CF2003C63DB /* md5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = md5.cpp; path = Tool/md5.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +109,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35B7A3B81A70F21D00E909C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35B7A3B91A70F6AE00E909C5 /* SHDevice.h */,
+				35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */,
+				35B7A3BC1A70F6C800E909C5 /* SHRouter.h */,
+				35B7A3BD1A70F6C800E909C5 /* SHRouter.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		35B7A3BF1A70FA9700E909C5 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				35D40E321A7631E50055E7CC /* general.h */,
+				35D40E331A7631E50055E7CC /* des.h */,
+				35D40E341A7631E50055E7CC /* des.c */,
+				35EB60471A737CF2003C63DB /* md5.h */,
+				35EB60481A737CF2003C63DB /* md5.cpp */,
+				35B7A3C01A70FB2F00E909C5 /* Reachability.m */,
+				35B7A3C11A70FB2F00E909C5 /* Reachability.h */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 		35CD44581A6E5F5300F6507F = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +155,16 @@
 		35CD44631A6E5F5300F6507F /* SHLink */ = {
 			isa = PBXGroup;
 			children = (
-				35CD448A1A6E7D7500F6507F /* NetworkModel */,
+				35D40E281A75EC730055E7CC /* Settings */,
+				35D40E181A75EB810055E7CC /* pureLayout */,
+				35B7A3BF1A70FA9700E909C5 /* Tools */,
+				35B7A3B81A70F21D00E909C5 /* Model */,
+				35CD448A1A6E7D7500F6507F /* Network */,
 				35CD44681A6E5F5300F6507F /* AppDelegate.h */,
 				35CD44691A6E5F5300F6507F /* AppDelegate.m */,
 				35CD446B1A6E5F5300F6507F /* ViewController.h */,
 				35CD446C1A6E5F5300F6507F /* ViewController.m */,
-				35CD446E1A6E5F5300F6507F /* Main.storyboard */,
+				35D40E271A75EBD50055E7CC /* Storyboards */,
 				35CD44711A6E5F5300F6507F /* Images.xcassets */,
 				35CD44731A6E5F5300F6507F /* LaunchScreen.xib */,
 				35CD44641A6E5F5300F6507F /* Supporting Files */,
@@ -109,6 +184,7 @@
 		35CD447D1A6E5F5300F6507F /* SHLinkTests */ = {
 			isa = PBXGroup;
 			children = (
+				35EB60431A723490003C63DB /* SHLinkDeviceSearchTests.m */,
 				35CD448D1A6F3EE000F6507F /* SHLinkPacketTests.m */,
 				35CD44801A6E5F5300F6507F /* SHLinkTests.m */,
 				35CD447E1A6E5F5300F6507F /* Supporting Files */,
@@ -124,12 +200,53 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		35CD448A1A6E7D7500F6507F /* NetworkModel */ = {
+		35CD448A1A6E7D7500F6507F /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				35CD448C1A6E7FBA00F6507F /* Packet.h */,
+				35EB60451A72443B003C63DB /* Packet.c */,
+				35B7A3B51A70F1E000E909C5 /* SHDeviceSearcher.h */,
+				35B7A3B61A70F1E000E909C5 /* SHDeviceSearcher.m */,
 			);
-			name = NetworkModel;
+			name = Network;
+			sourceTree = "<group>";
+		};
+		35D40E181A75EB810055E7CC /* pureLayout */ = {
+			isa = PBXGroup;
+			children = (
+				35D40E191A75EB810055E7CC /* ALView+PureLayout.h */,
+				35D40E1A1A75EB810055E7CC /* ALView+PureLayout.m */,
+				35D40E1B1A75EB810055E7CC /* NSArray+PureLayout.h */,
+				35D40E1C1A75EB810055E7CC /* NSArray+PureLayout.m */,
+				35D40E1D1A75EB810055E7CC /* NSLayoutConstraint+PureLayout.h */,
+				35D40E1E1A75EB810055E7CC /* NSLayoutConstraint+PureLayout.m */,
+				35D40E1F1A75EB810055E7CC /* PureLayout+Internal.h */,
+				35D40E201A75EB810055E7CC /* PureLayout.h */,
+				35D40E211A75EB810055E7CC /* PureLayoutDefines.h */,
+			);
+			path = pureLayout;
+			sourceTree = "<group>";
+		};
+		35D40E271A75EBD50055E7CC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				35CD446E1A6E5F5300F6507F /* Main.storyboard */,
+				35D40E251A75EBC40055E7CC /* Setting.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		35D40E281A75EC730055E7CC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				35D40E291A75ED270055E7CC /* WifiSettingViewController.h */,
+				35D40E2A1A75ED270055E7CC /* WifiSettingViewController.m */,
+				35D40E2C1A75ED400055E7CC /* WanSettingViewController.h */,
+				35D40E2D1A75ED400055E7CC /* WanSettingViewController.m */,
+				35D40E2F1A75ED540055E7CC /* LanSettingViewController.h */,
+				35D40E301A75ED540055E7CC /* LanSettingViewController.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +332,7 @@
 				35CD44701A6E5F5300F6507F /* Main.storyboard in Resources */,
 				35CD44751A6E5F5300F6507F /* LaunchScreen.xib in Resources */,
 				35CD44721A6E5F5300F6507F /* Images.xcassets in Resources */,
+				35D40E261A75EBC40055E7CC /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,9 +350,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D40E2B1A75ED270055E7CC /* WifiSettingViewController.m in Sources */,
 				35CD446D1A6E5F5300F6507F /* ViewController.m in Sources */,
+				35EB60461A72443B003C63DB /* Packet.c in Sources */,
+				35D40E2E1A75ED400055E7CC /* WanSettingViewController.m in Sources */,
+				35D40E351A7631E50055E7CC /* des.c in Sources */,
+				35D40E241A75EB810055E7CC /* NSLayoutConstraint+PureLayout.m in Sources */,
+				35B7A3BE1A70F6C800E909C5 /* SHRouter.m in Sources */,
+				35EB60491A737CF2003C63DB /* md5.cpp in Sources */,
+				35D40E231A75EB810055E7CC /* NSArray+PureLayout.m in Sources */,
 				35CD446A1A6E5F5300F6507F /* AppDelegate.m in Sources */,
+				35B7A3C21A70FB2F00E909C5 /* Reachability.m in Sources */,
+				35B7A3B71A70F1E000E909C5 /* SHDeviceSearcher.m in Sources */,
 				35CD44671A6E5F5300F6507F /* main.m in Sources */,
+				35D40E311A75ED540055E7CC /* LanSettingViewController.m in Sources */,
+				35B7A3BB1A70F6AE00E909C5 /* SHDevice.m in Sources */,
+				35D40E221A75EB810055E7CC /* ALView+PureLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35EB60441A723490003C63DB /* SHLinkDeviceSearchTests.m in Sources */,
 				35CD448E1A6F3EE000F6507F /* SHLinkPacketTests.m in Sources */,
 				35CD44811A6E5F5300F6507F /* SHLinkTests.m in Sources */,
 			);
@@ -428,6 +560,7 @@
 				35CD44861A6E5F5300F6507F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		35CD44871A6E5F5300F6507F /* Build configuration list for PBXNativeTarget "SHLinkTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +569,7 @@
 				35CD44891A6E5F5300F6507F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
