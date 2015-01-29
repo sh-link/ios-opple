@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"iconTest3"] forBarMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 
@@ -40,6 +42,18 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (UIImage *)genBarBackgroundImage {
+    
+    static dispatch_once_t onceToken;
+    static UIImage *image;
+    dispatch_once(&onceToken,^{
+    
+    });
+    
+    return image;
+    
 }
 
 @end

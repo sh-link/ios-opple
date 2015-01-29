@@ -27,32 +27,46 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="HOME_LINK_68" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XR-Li-BOy">
-                                <rect key="frame" x="41" y="160" width="518" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请确认新wifi连接密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XR-Li-BOy">
+                                <rect key="frame" x="41" y="158" width="518" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="dab-iW-1tE"/>
+                                    <constraint firstAttribute="height" constant="40" id="T2y-SB-ssU"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="HOME_LINK_68" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xCQ-iQ-b3V">
-                                <rect key="frame" x="41" y="94" width="518" height="40"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请设置新wifi连接密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xCQ-iQ-b3V">
+                                <rect key="frame" x="41" y="93" width="518" height="40"/>
+                                <color key="backgroundColor" white="0.92000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="VQt-L3-hq5"/>
+                                    <constraint firstAttribute="height" constant="40" id="rCT-4v-5CA"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SN7-T6-oA0">
+                                <rect key="frame" x="71" y="228" width="459" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="确定修改">
+                                    <color key="titleColor" red="0.25882352941176473" green="0.65490196078431373" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9XR-Li-BOy" secondAttribute="trailing" constant="25" id="6mU-Ny-xLt"/>
                             <constraint firstItem="rmL-2f-oVq" firstAttribute="leading" secondItem="7ha-MG-mgL" secondAttribute="leadingMargin" constant="25" id="I8e-lx-JD5"/>
+                            <constraint firstItem="9XR-Li-BOy" firstAttribute="top" secondItem="xCQ-iQ-b3V" secondAttribute="bottom" constant="25" id="fdM-w8-DH9"/>
+                            <constraint firstItem="9XR-Li-BOy" firstAttribute="leading" secondItem="7ha-MG-mgL" secondAttribute="leadingMargin" constant="25" id="gEZ-X4-AFb"/>
                             <constraint firstItem="rmL-2f-oVq" firstAttribute="top" secondItem="90Q-av-L3G" secondAttribute="bottom" constant="8" id="gec-TT-b91"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xCQ-iQ-b3V" secondAttribute="trailing" constant="25" id="kDc-MK-fVJ"/>
+                            <constraint firstItem="xCQ-iQ-b3V" firstAttribute="top" secondItem="rmL-2f-oVq" secondAttribute="bottom" constant="25" id="o1l-cr-KXf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rmL-2f-oVq" secondAttribute="trailing" constant="25" id="r9b-mb-CjF"/>
+                            <constraint firstItem="xCQ-iQ-b3V" firstAttribute="leading" secondItem="7ha-MG-mgL" secondAttribute="leadingMargin" constant="25" id="smJ-0E-8yb"/>
                         </constraints>
                     </view>
                 </viewController>

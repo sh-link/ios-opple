@@ -35,7 +35,8 @@
     NSLog(@"IP: %@",device.ip);
     NSLog(@"MAC:%@",device.mac);
     
-    [SHDeviceSearcher syncChallengeDeviceWithIp:@"192.168.0.1" Port:10246 Username:@"admin" Password:@"admin" TimeoutInSec:2];
+    BOOL ret = [SHDeviceSearcher syncChallengeDeviceWithIp:@"192.168.0.1" Port:10246 Username:@"admin" Password:@"admin" TimeoutInSec:2];
+    XCTAssert(ret, @"challeng failed!");
 }
 
 

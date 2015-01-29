@@ -117,54 +117,16 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
 
 +(BOOL)syncChallengeDeviceWithIp:(NSString *)ip Port:(unsigned short)port Username:(NSString *)usernameString Password:(NSString *)passwordString TimeoutInSec:(int)timeout {
     
-    struct sockaddr_in deviceAddr;
     int sockFd;
-    int flag;
     int ret;
-    fd_set wset,rset;
+    fd_set rset;
     struct timeval tval;
     _SHChallenge challengePacket;
-    md5_state_t mst;
-    md5_byte_t digest[16];
-    char userID[16], password[16];
     char readBuf[256];
     _SHChallengeReply *reply;
     
-    sockFd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sockFd <= 0) {
-        return NO;
-    }
-    flag = fcntl(sockFd, F_GETFL, 0);
-    fcntl(sockFd, F_SETFL, flag | O_NONBLOCK);
-    
-    bzero(&deviceAddr, sizeof(deviceAddr));
-    deviceAddr.sin_family = AF_INET;
-    deviceAddr.sin_port = htons(port);
-    if (inet_pton(AF_INET, [ip UTF8String], &deviceAddr.sin_addr.s_addr) <= 0) {
-        return NO;
-    }
-    deviceAddr.sin_len = sizeof(deviceAddr);
-    
-    
-    if ((ret = connect(sockFd, (struct sockaddr *)&deviceAddr, sizeof(struct sockaddr_in))) < 0) {
-        if (errno != EINPROGRESS) {
-            close(sockFd);
-            return NO;
-        }
-    }
-    
-    FD_ZERO(&wset);
-    FD_SET(sockFd,&wset);
-    tval.tv_sec = timeout;
-    tval.tv_usec = 0;
-    
-    if ((ret = select(sockFd + 1, NULL, &wset, NULL, &tval)) == 0) {
-        //timeout
-        close(sockFd);
-        return NO;
-    }
-    if (!FD_ISSET(sockFd,&wset)) {
-        close(sockFd);
+    sockFd = [self tcpConnectDeviceWithIp:ip Port:port TimeoutInSec:timeout];
+    if (sockFd < 0) {
         return NO;
     }
     
@@ -172,20 +134,9 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     *(int *)challengePacket.header.type = htonl(SHPacketType_Challenge);
     *(int *)challengePacket.length = htonl(0);
     strcpy((char *)challengePacket.userId, [usernameString UTF8String]);
-
-    bzero(userID, 16);
-    bzero(password, 16);
-    strcpy(userID, [usernameString UTF8String]);
-    strcpy(password, [passwordString UTF8String]);
     
-    bzero(digest, 16);
-    md5_init(&mst);
-    md5_append(&mst, (unsigned char *)userID, 16);
-    md5_append(&mst, (unsigned char *)password, 16);
-    md5_finish(&mst, digest);
-
-    des((const char *)SHDesSrc, (const char *)digest, (const char *)challengePacket.challenge, DES_ENCRYPT);
-
+    [self genChallengeWithUsername:usernameString Password:passwordString Output:(char *)challengePacket.challenge];
+    
     if (write(sockFd, &challengePacket, sizeof(challengePacket)) < sizeof(challengePacket)) {
         close(sockFd);
         return NO;
@@ -194,6 +145,10 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     FD_ZERO(&rset);
     FD_SET(sockFd, &rset);
     
+    bzero(&tval, sizeof(tval));
+    tval.tv_sec = timeout;
+    tval.tv_usec = 0;
+    
     if ((ret = select(sockFd + 1, &rset, NULL, NULL, &tval)) == 0) {
         //time out
         close(sockFd);
@@ -201,6 +156,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     }
     
     if ((ret = (int)read(sockFd, readBuf, 1024)) <= 0) {
+        NSLog(@"%d",errno);
         close(sockFd);
         return NO;
     }
@@ -216,6 +172,92 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     return YES;
 }
 
+#pragma mark - Tools
+#pragma mark -
 
+/**
+ *  Generate SHRouter login challenge bytes.
+ *
+ *  @param usernameString username in NSString
+ *  @param passwordString password in NSString
+ *  @param output         output buffer pointer, at least 8 bytes long, malloced by caller.
+ */
++ (void)genChallengeWithUsername:(NSString *)usernameString Password:(NSString *)passwordString Output:(char *)output {
+    char userID[16], password[16];
+    md5_byte_t digest[16];
+    md5_state_t mst;
+
+    
+    bzero(userID, 16);
+    bzero(password, 16);
+    strcpy(userID, [usernameString UTF8String]);
+    strcpy(password, [passwordString UTF8String]);
+    
+    bzero(digest, 16);
+    md5_init(&mst);
+    md5_append(&mst, (unsigned char *)userID, 16);
+    md5_append(&mst, (unsigned char *)password, 16);
+    md5_finish(&mst, digest);
+    
+    des((const char *)SHDesSrc, (const char *)digest, (const char *)output, DES_ENCRYPT);
+}
+
+/**
+ *  Connect to device with tcp socket.
+ *
+ *  @param ipString ip address in string like @"192.168.0.1"
+ *  @param port     tcp port
+ *  @param timeout  timeout in seconds
+ *
+ *  @return tcp socketfd, -1 if failed.
+ */
++ (int)tcpConnectDeviceWithIp:(NSString *)ipString Port:(unsigned short)port TimeoutInSec:(int)timeout {
+    struct sockaddr_in deviceAddr;
+    int sockFd;
+    int flag;
+    int ret;
+    fd_set wset;
+    struct timeval tval;
+    
+    sockFd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockFd <= 0) {
+        return -1;
+    }
+    
+    flag = fcntl(sockFd, F_GETFL, 0);
+    fcntl(sockFd, F_SETFL, flag | O_NONBLOCK);
+    
+    bzero(&deviceAddr, sizeof(deviceAddr));
+    deviceAddr.sin_family = AF_INET;
+    deviceAddr.sin_port = htons(port);
+    if (inet_pton(AF_INET, [ipString UTF8String], &deviceAddr.sin_addr.s_addr) <= 0) {
+        return -1;
+    }
+    deviceAddr.sin_len = sizeof(deviceAddr);
+    
+    if ((ret = connect(sockFd, (struct sockaddr *)&deviceAddr, sizeof(struct sockaddr_in))) < 0) {
+        if (errno != EINPROGRESS) {
+            close(sockFd);
+            return -1;
+        }
+    }
+    
+    FD_ZERO(&wset);
+    FD_SET(sockFd,&wset);
+    tval.tv_sec = timeout;
+    tval.tv_usec = 0;
+    
+    if ((ret = select(sockFd + 1, NULL, &wset, NULL, &tval)) == 0) {
+        //timeout
+        close(sockFd);
+        return -1;
+    }
+    if (!FD_ISSET(sockFd,&wset)) {
+        close(sockFd);
+        return -1;
+    }
+    
+    return sockFd;
+}
 
 @end
