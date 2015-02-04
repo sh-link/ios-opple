@@ -7,8 +7,13 @@
 //
 
 #import "WifiSettingViewController.h"
+#import "SHTextField.h"
 
 @interface WifiSettingViewController ()
+
+@property (weak, nonatomic) IBOutlet SHTextField *ssidTF;
+@property (weak, nonatomic) IBOutlet SHTextField *pswTF;
+@property (weak, nonatomic) IBOutlet SHTextField *retypePswTF;
 
 @end
 
@@ -16,22 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tabBarController.navigationItem.title = @"设置";
+    
+    _ssidTF.shLeftImage  = [UIImage imageNamed:@"iconTest3"];
+    
+    _pswTF.shLeftImage = [UIImage imageNamed:@"iconTest3"];
+    
+    _retypePswTF.shLeftImage = [UIImage imageNamed:@"iconTest3"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

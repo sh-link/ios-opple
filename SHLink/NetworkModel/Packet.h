@@ -82,6 +82,7 @@ typedef struct SHChallenge {
     _UINT8 userId[USER_ID_LEN];
     _UINT8 challenge[CHALLENGE_LEN];
     _UINT8 length[LEN_LEN];
+    
     _UINT8 content[0];
 } _SHChallenge;
 

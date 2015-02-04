@@ -16,4 +16,6 @@
 
 @property (nonatomic) UIImage *image;
 
+@property (nonatomic, weak) id caller;
+
 @end

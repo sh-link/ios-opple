@@ -12,6 +12,35 @@
 
 @implementation SHRectangleButton
 
+-(instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setUp];
+    }
+    return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setUp];
+    }
+    return self;
+}
+
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setUp];
+    }
+    return self;
+}
+
+- (void)setUp {
+    self.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    [self setTitleColor:[UIColor colorWithRed:66.0/255 green:167.0/255 blue:156.0/255 alpha:1.0f] forState:UIControlStateNormal];
+}
+
 - (void)drawRect:(CGRect)rect {
     
     self.layer.cornerRadius = Radius;

@@ -10,8 +10,10 @@
 #import "SHShadowLayer.h"
 #import "SHSquareButton.h"
 #import "SHMenuCell.h"
+#import "SHSlideMenu.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet SHSlideMenu *slide;
 
 @end
 
@@ -19,6 +21,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    CGRect frame = CGRectMake(100, 500, 90, 150);
+    SHMenuCell *cell = [[SHMenuCell alloc] initWithFrame:frame];
+    
+    cell.title = @"查询设备列表";
+    cell.image = [UIImage imageNamed:@"iconTest3"];
+    
+    [self.view addSubview:cell];
+    
+    _slide.menuArray = @[@"PPPOE",@"DHCP",@"静态IP",@"一个",@"two",@"three"];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -28,15 +40,13 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
     [super viewDidAppear:animated];
     
-    CGRect frame = CGRectMake(100, 100, 90, 150);
-    SHMenuCell *cell = [[SHMenuCell alloc] initWithFrame:frame];
+}
+
+- (IBAction)tap:(id)sender {
     
-    cell.title = @"查询设备列表";
-    cell.image = [UIImage imageNamed:@"iconTest3"];
-    
-    [self.view addSubview:cell];
     
     
 }

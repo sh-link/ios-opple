@@ -39,9 +39,9 @@
     XCTAssertEqual(sizeof(header), 8, @"SHHeader should be 8 bytes length.");
     XCTAssertEqual(sizeof(detect), 8, @"SHDetect packet should be 8 bytes length.");
     XCTAssertEqual(sizeof(detectReply), 56, @"SHDetect reply packet should be 56 bytes length.");
-    XCTAssertEqual(sizeof(challenge), 48, @"SHChallenge packet should be 48 bytes length.");
+    XCTAssertEqual(sizeof(challenge), 40, @"SHChallenge packet should be 48 bytes length.");
     XCTAssertEqual(sizeof(challengeRelay), 20, @"SHChallenge reply packet should be 20 bytes length.");
-    XCTAssertEqual(sizeof(control), 48, @"SHControl packet should be 48 bytes length.");
+    XCTAssertEqual(sizeof(control), 40, @"SHControl packet should be 48 bytes length.");
     XCTAssertEqual(sizeof(controlReply), 20, @"SHControl reply packet should be 20 bytes length.");
 }
 

@@ -49,6 +49,7 @@
     _button = [[SHSquareButton alloc] initWithFrame:CGRectZero];
     _button.showsTouchWhenHighlighted = YES;
     
+    
     _shadowLayer = [SHShadowLayer layer];
     
     _label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -71,7 +72,8 @@
     _shadowLayer.frame = buttonFrame;
     _button.frame = buttonFrame;
     
-    CGRect labelFrame = CGRectMake(0, 2 * buttonPadding + buttonWidth, CGRectGetWidth(self.frame), labelHeight);
+    CGFloat labelExtra = 20;
+    CGRect labelFrame = CGRectMake(- labelExtra, 3 * buttonPadding + buttonWidth, CGRectGetWidth(self.frame) + 2 * labelExtra, labelHeight);
     _label.frame = labelFrame;
     
     [_shadowLayer setNeedsDisplay];
@@ -83,6 +85,15 @@
 
 - (void)setImage:(UIImage *)image {
     [_button setImage:image forState:UIControlStateNormal];
+}
+
+- (void)setSelector:(SEL)selector {
+    _selector = selector;
+    [_button addTarget:_caller action:_selector forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)tapped {
+    
 }
 
 @end

@@ -13,4 +13,7 @@
 @property (nonatomic, retain) NSString *ip;
 @property (nonatomic, retain) NSString *mac;
 
+@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSString *password;
+
 @end
