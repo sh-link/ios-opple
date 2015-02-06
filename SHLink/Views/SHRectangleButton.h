@@ -10,4 +10,8 @@
 
 @interface SHRectangleButton : UIButton
 
+@property (nonatomic) BOOL inSearching;
+
+
+
 @end

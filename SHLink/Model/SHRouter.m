@@ -25,7 +25,7 @@
         sharedInstance.ip = @"192.168.0.1";
         sharedInstance.tcpPort = 10246;
         sharedInstance.username = @"admin";
-        sharedInstance.password = @"admin";
+        sharedInstance.password = @"111111";
         
         struct sockaddr_in deviceAddr;
         bzero(&deviceAddr, sizeof(deviceAddr));
@@ -45,8 +45,8 @@
         NSLog(@"NOT Reachable");
         return NO;
     }
-    
-    [self getClientListWithError:nil];
+    NSError *error = nil;
+    [self getClientListWithError:&error];
     
     return YES;
 }
@@ -64,10 +64,10 @@
 
     NSData *receviceJson =  [SHDeviceConnector syncSendCommandWithIp:self.ip Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:2 Error:error];
     
-//    if (*error) {
-//        NSLog(@"%@",[*error localizedDescription]);
-//        return nil;
-//    }
+    if (*error) {
+        NSLog(@"%@",[*error localizedDescription]);
+        return nil;
+    }
     
     if (receviceJson) {
         NSDictionary *receiveDic = [NSJSONSerialization JSONObjectWithData:receviceJson options:0 error:nil];

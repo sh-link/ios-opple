@@ -56,7 +56,10 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     struct timeval tval;
     char readBuf[256];
     char ip[INET_ADDRSTRLEN];
+    unsigned short _port;
     _SHDetect detectPacket;
+    
+    _port = port == 0 ? 10245 : port;
 
     sockFd = socket(AF_INET, SOCK_DGRAM, 0);
     if (sockFd < 0) {
@@ -70,7 +73,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     
     bzero(&broadcastAddr, sizeof(broadcastAddr));
     broadcastAddr.sin_family = AF_INET;
-    broadcastAddr.sin_port = htons(port);
+    broadcastAddr.sin_port = htons(_port);
     broadcastAddr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
     broadcastAddr.sin_len = sizeof(broadcastAddr);
     
@@ -185,7 +188,8 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     
     sockFd = [self tcpConnectDeviceWithIp:ip Port:port TimeoutInSec:timeout];
     if (sockFd < 0) {
-        *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Unreachable userInfo:@{NSLocalizedDescriptionKey: @"Can not connect to the router."}];
+        if (error)
+            *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Unreachable userInfo:@{NSLocalizedDescriptionKey: @"Can not connect to the router."}];
         return nil;
     }
     
@@ -201,7 +205,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     [self genChallengeWithUsername:usernameString Password:passwordString Output:(char *)controlPacket->challenge];
     
     if (write(sockFd, controlPacket, packetSize) < packetSize) {
-        *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Socket_Error userInfo:@{NSLocalizedDescriptionKey: @"Write to socket error."}];
+        if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Socket_Error userInfo:@{NSLocalizedDescriptionKey: @"Write to socket error."}];
         close(sockFd);
         return nil;
     }
@@ -215,14 +219,14 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     
     if ((ret = select(sockFd + 1, &rset, NULL, NULL, &tval)) == 0) {
         //time out
-        *error = [NSError errorWithDomain:SHErrorDomain code:SHerror_Timeout userInfo:@{NSLocalizedDescriptionKey: @"Read socket timeout."}];
+        if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHerror_Timeout userInfo:@{NSLocalizedDescriptionKey: @"Read socket timeout."}];
         close(sockFd);
         return nil;
     }
     
     if ((ret = (int)read(sockFd, readBuf, 1024)) <= 0) {
         NSLog(@"%d",errno);
-        *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Socket_Error userInfo:@{NSLocalizedDescriptionKey: @"Read socket error."}];
+        if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Socket_Error userInfo:@{NSLocalizedDescriptionKey: @"Read socket error."}];
         close(sockFd);
         return nil;
     }
@@ -232,7 +236,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     if (PACKET_CHECK_TYPE(SHPacketType_ControlReply, reply)) {
         int status = ntohl(*(int *)reply->status);
         if (status != 0) {
-            *error = [NSError errorWithDomain:SHErrorDomain code:status userInfo:@{NSLocalizedDescriptionKey: @"Control failed!"}];
+            if (error) *error = [NSError errorWithDomain:SHErrorDomain code:status userInfo:@{NSLocalizedDescriptionKey: @"Control failed!"}];
             close(sockFd);
             return nil;
         }
@@ -240,7 +244,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
         return jsonData;
     }
     
-    *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Socket_Error userInfo:@{NSLocalizedDescriptionKey: @"Wrong type."}];
+    if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Socket_Error userInfo:@{NSLocalizedDescriptionKey: @"Wrong type."}];
     close(sockFd);
     return nil;
 }

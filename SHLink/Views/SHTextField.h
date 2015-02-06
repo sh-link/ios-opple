@@ -12,4 +12,7 @@
 
 @property (nonatomic) UIImage *shLeftImage;
 
+- (void)shakeWithText:(NSString *)text;
+
+
 @end

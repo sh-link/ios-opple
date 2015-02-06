@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		350FBB4B1A821B7B00363DBF /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FBB4A1A821B7B00363DBF /* WelcomeViewController.m */; };
+		350FBB4E1A82F47D00363DBF /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FBB4D1A82F47D00363DBF /* SearchViewController.m */; };
+		350FBB511A83990E00363DBF /* SHSearchRoationLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FBB501A83990E00363DBF /* SHSearchRoationLayer.m */; };
+		350FBB5E1A84AEAD00363DBF /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FBB5D1A84AEAD00363DBF /* CMPopTipView.m */; };
 		35B7A3B71A70F1E000E909C5 /* SHDeviceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3B61A70F1E000E909C5 /* SHDeviceConnector.m */; };
 		35B7A3BB1A70F6AE00E909C5 /* SHDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */; };
 		35B7A3BE1A70F6C800E909C5 /* SHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BD1A70F6C800E909C5 /* SHRouter.m */; };
@@ -62,6 +65,12 @@
 /* Begin PBXFileReference section */
 		350FBB491A821B7B00363DBF /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeViewController.h; path = Mains/WelcomeViewController.h; sourceTree = "<group>"; };
 		350FBB4A1A821B7B00363DBF /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeViewController.m; path = Mains/WelcomeViewController.m; sourceTree = "<group>"; };
+		350FBB4C1A82F47D00363DBF /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Mains/SearchViewController.h; sourceTree = "<group>"; };
+		350FBB4D1A82F47D00363DBF /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Mains/SearchViewController.m; sourceTree = "<group>"; };
+		350FBB4F1A83990E00363DBF /* SHSearchRoationLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHSearchRoationLayer.h; path = Views/SHSearchRoationLayer.h; sourceTree = "<group>"; };
+		350FBB501A83990E00363DBF /* SHSearchRoationLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHSearchRoationLayer.m; path = Views/SHSearchRoationLayer.m; sourceTree = "<group>"; };
+		350FBB5C1A84AEAD00363DBF /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
+		350FBB5D1A84AEAD00363DBF /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
 		35B7A3B51A70F1E000E909C5 /* SHDeviceConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDeviceConnector.h; path = NetworkModel/SHDeviceConnector.h; sourceTree = "<group>"; };
 		35B7A3B61A70F1E000E909C5 /* SHDeviceConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDeviceConnector.m; path = NetworkModel/SHDeviceConnector.m; sourceTree = "<group>"; };
 		35B7A3B91A70F6AE00E909C5 /* SHDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDevice.h; path = Model/SHDevice.h; sourceTree = "<group>"; };
@@ -170,6 +179,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		350FBB5B1A84AEAD00363DBF /* CMPopTipView */ = {
+			isa = PBXGroup;
+			children = (
+				350FBB5C1A84AEAD00363DBF /* CMPopTipView.h */,
+				350FBB5D1A84AEAD00363DBF /* CMPopTipView.m */,
+			);
+			path = CMPopTipView;
+			sourceTree = "<group>";
+		};
 		35B7A3B81A70F21D00E909C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +220,8 @@
 				350FBB4A1A821B7B00363DBF /* WelcomeViewController.m */,
 				35CAB75D1A7F68ED00EA1E16 /* HomeViewController.h */,
 				35CAB75E1A7F68ED00EA1E16 /* HomeViewController.m */,
+				350FBB4C1A82F47D00363DBF /* SearchViewController.h */,
+				350FBB4D1A82F47D00363DBF /* SearchViewController.m */,
 			);
 			name = Mains;
 			sourceTree = "<group>";
@@ -249,6 +269,7 @@
 		35CD44631A6E5F5300F6507F /* SHLink */ = {
 			isa = PBXGroup;
 			children = (
+				350FBB5B1A84AEAD00363DBF /* CMPopTipView */,
 				35D40E361A7660D60055E7CC /* Views */,
 				35CAB7671A80CC4400EA1E16 /* Accounts */,
 				35CAB7601A7F9BDC00EA1E16 /* DeviceList */,
@@ -358,6 +379,8 @@
 			children = (
 				35D40E371A7660FC0055E7CC /* SHRectangleButton.h */,
 				35D40E381A7660FC0055E7CC /* SHRectangleButton.m */,
+				350FBB4F1A83990E00363DBF /* SHSearchRoationLayer.h */,
+				350FBB501A83990E00363DBF /* SHSearchRoationLayer.m */,
 				35CAB73E1A78E23100EA1E16 /* SHSquareButton.h */,
 				35CAB73F1A78E23100EA1E16 /* SHSquareButton.m */,
 				35CAB7411A790F0400EA1E16 /* SHMenuCell.h */,
@@ -523,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35CAB75B1A7E1CF300EA1E16 /* StaticIpSettingViewController.m in Sources */,
+				350FBB511A83990E00363DBF /* SHSearchRoationLayer.m in Sources */,
 				35D40E2B1A75ED270055E7CC /* WifiSettingViewController.m in Sources */,
 				35CAB7431A790F0400EA1E16 /* SHMenuCell.m in Sources */,
 				35CD446D1A6E5F5300F6507F /* ViewController.m in Sources */,
@@ -541,6 +565,7 @@
 				35EB60491A737CF2003C63DB /* md5.cpp in Sources */,
 				35CAB7491A7A55B300EA1E16 /* SHTextField.m in Sources */,
 				35CAB7401A78E23100EA1E16 /* SHSquareButton.m in Sources */,
+				350FBB4E1A82F47D00363DBF /* SearchViewController.m in Sources */,
 				35D40E231A75EB810055E7CC /* NSArray+PureLayout.m in Sources */,
 				35CD446A1A6E5F5300F6507F /* AppDelegate.m in Sources */,
 				35CAB75F1A7F68ED00EA1E16 /* HomeViewController.m in Sources */,
@@ -554,6 +579,7 @@
 				350FBB4B1A821B7B00363DBF /* WelcomeViewController.m in Sources */,
 				35D40E221A75EB810055E7CC /* ALView+PureLayout.m in Sources */,
 				35CAB74C1A7B73D800EA1E16 /* SHSlideMenu.m in Sources */,
+				350FBB5E1A84AEAD00363DBF /* CMPopTipView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

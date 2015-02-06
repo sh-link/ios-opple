@@ -7,10 +7,15 @@
 //
 
 #import "SHRectangleButton.h"
+#import "SHSearchRoationLayer.h"
 
 #define Radius 10.0
+#define searchingPadding 3.0
 
 @implementation SHRectangleButton
+{
+    SHSearchRoationLayer *_searchLayer;
+}
 
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -29,6 +34,7 @@
 }
 
 -(instancetype)init {
+    
     self = [super init];
     if (self) {
         [self setUp];
@@ -37,8 +43,27 @@
 }
 
 - (void)setUp {
-    self.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    
+    self.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:16.0];
     [self setTitleColor:[UIColor colorWithRed:66.0/255 green:167.0/255 blue:156.0/255 alpha:1.0f] forState:UIControlStateNormal];
+    
+    self.showsTouchWhenHighlighted = YES;
+    self.inSearching = NO;
+    
+    _searchLayer = [SHSearchRoationLayer layer];
+    _searchLayer.frame = CGRectMake(0, 0, 30, 30);
+    
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat:M_PI * 2.0];
+    
+    rotationAnimation.duration = 1.0;
+    rotationAnimation.repeatCount = HUGE_VALF;
+    
+    [_searchLayer addAnimation:rotationAnimation forKey:@"KCBasicAnimation_Rotation"];
+    
+    [_searchLayer setNeedsDisplay];
+    [self.layer addSublayer:_searchLayer];
+    
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -73,7 +98,26 @@
     CGContextClosePath(contex);
     
     CGContextStrokePath(contex);
+    
+    CGRect titleRect = [self titleRectForContentRect:rect];
+    CGFloat searchingWidth = CGRectGetHeight(rect) - searchingPadding * 2.0;
+    
+    NSLog(@"%@",NSStringFromCGRect([self titleRectForContentRect:rect]));
+    if (_inSearching) {
+        _searchLayer.frame = CGRectMake(CGRectGetMinX(titleRect) - searchingPadding - searchingWidth, searchingPadding, searchingWidth, searchingWidth);
+    } else {
+        _searchLayer.frame = CGRectZero;
+    }
+    
+    NSLog(@"%@",NSStringFromCGRect(_searchLayer.frame));
+    [_searchLayer setNeedsDisplay];
+}
 
+- (void)setInSearching:(BOOL)inSearching {
+    _inSearching = inSearching;
+
+    [self setNeedsDisplay];
+    [_searchLayer setNeedsDisplay];
 }
 
 

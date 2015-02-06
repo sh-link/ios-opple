@@ -35,4 +35,14 @@
 
 - (BOOL)updateRouterInfo;
 
+/**
+ *  Get router's latest client list.
+ *
+ *  @param error nil if success.
+ *
+ *  @return client list array.
+ */
+- (NSArray *)getClientListWithError:(NSError **)error;
+
+
 @end

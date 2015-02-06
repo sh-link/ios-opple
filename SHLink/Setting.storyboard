@@ -37,6 +37,9 @@
                                     <color key="titleColor" red="0.25882352941176473" green="0.65490196078431373" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shake:" destination="nEE-Pt-VvO" eventType="touchUpInside" id="BBx-p5-Kl8"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请确认新wifi连接密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XR-Li-BOy" customClass="SHTextField">
                                 <rect key="frame" x="36" y="190" width="528" height="40"/>

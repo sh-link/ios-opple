@@ -8,7 +8,9 @@
 
 #import "WifiSettingViewController.h"
 #import "SHTextField.h"
+#import "CMPopTipView.h"
 
+#define REGEX_USER_NAME @"[A-Za-z0-9]{3,10}"
 @interface WifiSettingViewController ()
 
 @property (weak, nonatomic) IBOutlet SHTextField *ssidTF;
@@ -20,6 +22,7 @@
 @implementation WifiSettingViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.tabBarController.navigationItem.title = @"设置";
@@ -30,6 +33,15 @@
     
     _retypePswTF.shLeftImage = [UIImage imageNamed:@"iconTest3"];
     
+}
+- (IBAction)shake:(id)sender {
+    [_ssidTF shakeWithText:@"密码格式不正确"];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

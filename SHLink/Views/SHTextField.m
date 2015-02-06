@@ -7,6 +7,7 @@
 //
 
 #import "SHTextField.h"
+#import "CMPopTipView.h"
 
 #define padding 5.5
 
@@ -89,6 +90,31 @@
     }
     
     [self setNeedsDisplay];
+}
+
+-(void)shakeWithText:(NSString *)text {
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
+    CGFloat currentTx = self.transform.tx;
+    
+    animation.duration = 0.5;
+    animation.values = @[ @(currentTx), @(currentTx + 10), @(currentTx-8), @(currentTx + 8), @(currentTx -5), @(currentTx + 5), @(currentTx) ];
+    animation.keyTimes = @[ @(0), @(0.225), @(0.425), @(0.6), @(0.75), @(0.875), @(1) ];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [self.layer addAnimation:animation forKey:@"kAFViewShakerAnimationKey"];
+    
+    CMPopTipView *tip = [[CMPopTipView alloc] initWithMessage:text];
+    [tip setBackgroundColor:[UIColor whiteColor]];
+    [tip setBorderColor:[UIColor clearColor]];
+    [tip setDismissTapAnywhere:YES];
+    [tip setHas3DStyle:NO];
+    [tip setHasShadow:YES];
+    [tip setPointerSize:6.0];
+    [tip setTextColor:[UIColor colorWithRed:120.0/255 green:120.0/255 blue:120.0/255 alpha:1.0]];
+    [tip setHasGradientBackground:NO];
+    [tip presentPointingAtView:self inView:self.superview animated:YES];
+    [tip autoDismissAnimated:YES atTimeInterval:1.5];
+    
 }
 
 @end
