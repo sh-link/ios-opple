@@ -10,4 +10,16 @@
 
 @implementation SHDevice
 
+-(void)setUsername:(NSString *)username {
+    _username = username;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"username"];
+}
+
+-(void)setPassword:(NSString *)password {
+    _password = password;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:password forKey:@"password"];
+}
+
 @end

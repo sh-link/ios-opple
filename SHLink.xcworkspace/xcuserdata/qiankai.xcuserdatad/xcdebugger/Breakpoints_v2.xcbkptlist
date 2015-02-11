@@ -9,45 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SHLinkTests/SHLinkDeviceSearchTests.m"
-            timestampString = "444704621.368626"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-testGetClientList"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SHLink/DeviceList/DeviceListViewController.m"
-            timestampString = "444706324.630282"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-setup"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SHLink/Model/SHRouter.m"
-            timestampString = "444706347.117484"
+            timestampString = "445260611.641743"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-updateRouterInfo"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-getNetworkSettingInfoWithError:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SHLink/NetworkModel/SHDeviceConnector.m"
-            timestampString = "444880021.614562"
+            timestampString = "445224689.849394"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "+syncSendCommandWithIp:Port:Username:Password:Command:TimeoutInSec:Error:"
             landmarkType = "5">
          </BreakpointContent>
@@ -73,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SHLink/Model/SHRouter.m"
-            timestampString = "444742790.933561"
+            filePath = "SHLink/NetworkInfo/NetworkInfoViewController.m"
+            timestampString = "445259365.987442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-getClientListWithError:"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "-refresh"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,61 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SHLink/Views/SHRectangleButton.m"
-            timestampString = "444901877.993094"
+            filePath = "SHLink/Settings/WifiSettingViewController.m"
+            timestampString = "445261523.250491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-drawRect:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SHLink/Mains/SearchViewController.m"
-            timestampString = "444901877.993094"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-setCurrentState:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SHLink/Mains/SearchViewController.m"
-            timestampString = "444901877.993094"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-setCurrentState:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SHLink/Mains/SearchViewController.m"
-            timestampString = "444901877.993094"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-setCurrentState:"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-checkValid"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

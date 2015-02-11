@@ -44,7 +44,12 @@
 
 - (void)setUp {
     
-    self.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:16.0];
+    if (_shFont) {
+        self.titleLabel.font = _shFont;
+    } else {
+        self.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    }
+    
     [self setTitleColor:[UIColor colorWithRed:66.0/255 green:167.0/255 blue:156.0/255 alpha:1.0f] forState:UIControlStateNormal];
     
     self.showsTouchWhenHighlighted = YES;
@@ -53,15 +58,7 @@
     _searchLayer = [SHSearchRoationLayer layer];
     _searchLayer.frame = CGRectMake(0, 0, 30, 30);
     
-    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:M_PI * 2.0];
     
-    rotationAnimation.duration = 1.0;
-    rotationAnimation.repeatCount = HUGE_VALF;
-    
-    [_searchLayer addAnimation:rotationAnimation forKey:@"KCBasicAnimation_Rotation"];
-    
-    [_searchLayer setNeedsDisplay];
     [self.layer addSublayer:_searchLayer];
     
 }
@@ -102,23 +99,43 @@
     CGRect titleRect = [self titleRectForContentRect:rect];
     CGFloat searchingWidth = CGRectGetHeight(rect) - searchingPadding * 2.0;
     
-    NSLog(@"%@",NSStringFromCGRect([self titleRectForContentRect:rect]));
+    [_searchLayer removeAllAnimations];
+    
+    _searchLayer.frame = CGRectMake(CGRectGetMinX(titleRect) - searchingPadding - searchingWidth, searchingPadding, searchingWidth, searchingWidth);
+    
     if (_inSearching) {
-        _searchLayer.frame = CGRectMake(CGRectGetMinX(titleRect) - searchingPadding - searchingWidth, searchingPadding, searchingWidth, searchingWidth);
+        
+        _searchLayer.hidden = NO;
+        
+        CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        rotationAnimation.toValue = [NSNumber numberWithFloat:M_PI * 2.0];
+        
+        rotationAnimation.duration = 1.0;
+        rotationAnimation.repeatCount = HUGE_VALF;
+        
+        [_searchLayer addAnimation:rotationAnimation forKey:@"KCBasicAnimation_Rotation"];
+        
+        [_searchLayer setNeedsDisplay];
+        
     } else {
-        _searchLayer.frame = CGRectZero;
+        _searchLayer.hidden = YES;
     }
     
-    NSLog(@"%@",NSStringFromCGRect(_searchLayer.frame));
     [_searchLayer setNeedsDisplay];
 }
 
 - (void)setInSearching:(BOOL)inSearching {
     _inSearching = inSearching;
-
+    
+//    [_searchLayer setNeedsDisplay];
     [self setNeedsDisplay];
-    [_searchLayer setNeedsDisplay];
+    
 }
 
+- (void)setShFont:(UIFont *)shFont {
+    _shFont = shFont;
+    self.titleLabel.font = shFont;
+    [self setNeedsDisplay];
+}
 
 @end

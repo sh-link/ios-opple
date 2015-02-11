@@ -43,7 +43,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -62,12 +61,6 @@
         }
     }];
 }
-
-//- (void)updateViewConstraints {
-//    _logoImageView.center = self.view.center;
-//    _detailImageView.center = self.view.center;
-//    [super updateViewConstraints];
-//}
 
 - (void)mode {
     [self performSegueWithIdentifier:@"mainSegue" sender:self];

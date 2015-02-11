@@ -10,8 +10,14 @@
 #import "SHTextField.h"
 #import "SHRectangleButton.h"
 #import "PureLayout.h"
+#import "SHRouter.h"
+#import "MBProgressHUD.h"
+#import "AccountControlTool.h"
 
 @interface AccountViewController ()
+{
+    MBProgressHUD *hud;
+}
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeightConstraint;
@@ -31,13 +37,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [[UIApplication sharedApplication].keyWindow addSubview:hud];
+    [super viewDidAppear:animated];
 }
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [hud removeFromSuperview];
+    [super viewDidDisappear:animated];
+}
+
+#pragma mark - Tools
+#pragma mark -
 
 - (void)setup {
     
@@ -47,8 +60,48 @@
     _pswTF.shLeftImage = [UIImage imageNamed:@"iconTest3"];
     _retypePswTF.shLeftImage = [UIImage imageNamed:@"iconTest3"];
     
+    hud = [[MBProgressHUD alloc] initWithWindow:[UIApplication sharedApplication].keyWindow];
+    hud.labelText = @"正在设置…";
+    hud.dimBackground = YES;
+    hud.minShowTime = 2.0;
+    
 }
 
+- (BOOL)checkValid {
+    
+    SHRouter *router = [SHRouter currentRouter];
+    
+    if (![_currentAccountTF.text isEqualToString:router.username]) {
+        [_currentAccountTF shakeWithText:@"当前账号用户名错误"];
+        return NO;
+    }
+    
+    if (![_currentPswTF.text isEqualToString:router.password]) {
+        [_currentPswTF shakeWithText:@"当前账号密码错误"];
+        return NO;
+    }
+    
+    if (_accountTF.text.length == 0) {
+        [_accountTF shakeWithText:@"用户名不能为空"];
+        return NO;
+    }
+    
+    if (_pswTF.text.length == 0) {
+        [_pswTF shakeWithText:@"密码不能为空"];
+        return NO;
+    }
+    
+    if (![_pswTF.text isEqualToString:_retypePswTF.text]) {
+        [_pswTF shakeWithText:nil];
+        [_retypePswTF shakeWithText:@"两次输入的密码不一致"];
+        return NO;
+    }
+    
+    return YES;
+}
+
+#pragma mark - Layout
+#pragma mark -
 
 - (void)updateViewConstraints {
     CGFloat buttonMaxY = CGRectGetMaxY(_confirmButton.frame);
@@ -62,14 +115,67 @@
     
     [super updateViewConstraints];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Actions
+#pragma mark -
+
+- (IBAction)viewTouchDown:(id)sender {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
-*/
+
+- (IBAction)currentAccountDidEndOnExit:(id)sender {
+    [_currentPswTF becomeFirstResponder];
+}
+
+- (IBAction)currentPswDidEndOnExit:(id)sender {
+    [_accountTF becomeFirstResponder];
+}
+
+- (IBAction)accountDidEndOnExit:(id)sender {
+    [_pswTF becomeFirstResponder];
+}
+
+- (IBAction)passwordDidEndOnExit:(id)sender {
+    [_retypePswTF becomeFirstResponder];
+}
+
+- (IBAction)retypePswDidEndOnExit:(id)sender {
+    [sender resignFirstResponder];
+}
+
+- (IBAction)ok:(id)sender {
+    
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+    
+    if (![self checkValid]) {
+        return;
+    }
+    __block BOOL ret;
+    [hud showAnimated:YES whileExecutingBlock:^{
+        ret = [[SHRouter currentRouter] setRouterAccountWithUsername:_accountTF.text Password:_pswTF.text WithError:nil];
+    } completionBlock:^{
+        if (ret) {
+            
+            [AccountControlTool storageUserName:_accountTF.text Password:_pswTF.text ForMac:[SHRouter currentRouter].mac];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:SHAlert_Head
+                                                            message:SHAlert_SetAccountSuccess
+                                                           delegate:nil
+                                                  cancelButtonTitle:SHAlert_OK
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
+            [[self navigationController] popViewControllerAnimated:YES];
+        } else {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:SHAlert_Head
+                                                            message:SHAlert_SetAccountFailed
+                                                           delegate:nil
+                                                  cancelButtonTitle:SHAlert_OK
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
+}
 
 @end

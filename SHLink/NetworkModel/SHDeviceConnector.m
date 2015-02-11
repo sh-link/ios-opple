@@ -118,7 +118,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     return nil;
 }
 
-+(BOOL)syncChallengeDeviceWithIp:(NSString *)ip Port:(unsigned short)port Username:(NSString *)usernameString Password:(NSString *)passwordString TimeoutInSec:(int)timeout {
++(BOOL)syncChallengeDeviceWithIp:(NSString *)ip Port:(unsigned short)port Username:(NSString *)usernameString Password:(NSString *)passwordString TimeoutInSec:(int)timeout Error:(NSError **)error {
     
     int sockFd;
     int ret;
@@ -130,6 +130,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     
     sockFd = [self tcpConnectDeviceWithIp:ip Port:port TimeoutInSec:timeout];
     if (sockFd < 0) {
+        if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Unreachable userInfo:@{NSLocalizedDescriptionKey: @"Can not connect to the router."}];
         return NO;
     }
     
@@ -141,6 +142,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     [self genChallengeWithUsername:usernameString Password:passwordString Output:(char *)challengePacket.challenge];
     
     if (write(sockFd, &challengePacket, sizeof(challengePacket)) < sizeof(challengePacket)) {
+        if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Socket_Error userInfo:@{NSLocalizedDescriptionKey: @"Write to socket error."}];
         close(sockFd);
         return NO;
     }
@@ -154,12 +156,14 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     
     if ((ret = select(sockFd + 1, &rset, NULL, NULL, &tval)) == 0) {
         //time out
+        if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHerror_Timeout userInfo:@{NSLocalizedDescriptionKey: @"Read socket timeout."}];
         close(sockFd);
         return NO;
     }
     
     if ((ret = (int)read(sockFd, readBuf, 1024)) <= 0) {
         NSLog(@"%d",errno);
+        if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Socket_Error userInfo:@{NSLocalizedDescriptionKey: @"Read socket error."}];
         close(sockFd);
         return NO;
     }
@@ -168,11 +172,38 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     
     if (PACKET_CHECK_TYPE(SHPacketType_ChallengeReply, reply)) {
         int status = ntohl(*(int *)reply->status);
-        NSLog(@"SUCCESS wtih status: %d",status);
+        switch (status) {
+                
+            case SHControlStatus_UserNotExist:
+                if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_User_Not_Exist userInfo:@{NSLocalizedDescriptionKey: @"User not exist."}];
+                close(sockFd);
+                return NO;
+                break;
+                
+            case SHControlStatus_WrongPsw:
+                if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHerror_Wrong_Password userInfo:@{NSLocalizedDescriptionKey: @"Password wrong."}];
+                close(sockFd);
+                return NO;
+                break;
+                
+            case SHControlStatus_Failed:
+                if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHerror_Command_Failed userInfo:@{NSLocalizedDescriptionKey: @"Command failed."}];
+                close(sockFd);
+                return NO;
+                break;
+            
+            case SHControlStatus_Success:
+                close(sockFd);
+                return YES;
+                
+            default:
+                NSAssert(NO, @"Wrong reply status.");
+        }
     }
     
+    if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHerror_Command_Failed userInfo:@{NSLocalizedDescriptionKey: @"Command failed."}];
     close(sockFd);
-    return YES;
+    return NO;
 }
 
 +(NSData *)syncSendCommandWithIp:(NSString *)ip Port:(unsigned short)port Username:(NSString *)usernameString Password:(NSString *)passwordString Command:(NSData *)command TimeoutInSec:(int)timeout Error:(NSError **)error {
@@ -183,13 +214,12 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     struct timeval tval;
     size_t packetSize;
     _SHControl *controlPacket;
-    char readBuf[256];
+    char readBuf[1024];
     _SHChallengeReply *reply;
     
     sockFd = [self tcpConnectDeviceWithIp:ip Port:port TimeoutInSec:timeout];
     if (sockFd < 0) {
-        if (error)
-            *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Unreachable userInfo:@{NSLocalizedDescriptionKey: @"Can not connect to the router."}];
+        if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Unreachable userInfo:@{NSLocalizedDescriptionKey: @"Can not connect to the router."}];
         return nil;
     }
     
@@ -241,6 +271,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
             return nil;
         }
         NSData *jsonData = [NSData dataWithBytes:reply->content length:ntohl(*(int *)reply->length)];
+        close(sockFd);
         return jsonData;
     }
     

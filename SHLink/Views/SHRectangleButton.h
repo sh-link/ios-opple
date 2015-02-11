@@ -12,6 +12,6 @@
 
 @property (nonatomic) BOOL inSearching;
 
-
+@property (nonatomic) UIFont *shFont;
 
 @end

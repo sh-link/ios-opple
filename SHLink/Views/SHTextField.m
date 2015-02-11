@@ -103,18 +103,20 @@
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [self.layer addAnimation:animation forKey:@"kAFViewShakerAnimationKey"];
     
-    CMPopTipView *tip = [[CMPopTipView alloc] initWithMessage:text];
-    [tip setBackgroundColor:[UIColor whiteColor]];
-    [tip setBorderColor:[UIColor clearColor]];
-    [tip setDismissTapAnywhere:YES];
-    [tip setHas3DStyle:NO];
-    [tip setHasShadow:YES];
-    [tip setPointerSize:6.0];
-    [tip setTextColor:[UIColor colorWithRed:120.0/255 green:120.0/255 blue:120.0/255 alpha:1.0]];
-    [tip setHasGradientBackground:NO];
-    [tip presentPointingAtView:self inView:self.superview animated:YES];
-    [tip autoDismissAnimated:YES atTimeInterval:1.5];
-    
+    if (text) {
+        CMPopTipView *tip = [[CMPopTipView alloc] initWithMessage:text];
+        [tip setBackgroundColor:[UIColor whiteColor]];
+        [tip setBorderColor:[UIColor clearColor]];
+        [tip setDismissTapAnywhere:YES];
+        [tip setHas3DStyle:NO];
+        [tip setHasShadow:YES];
+        [tip setPointerSize:6.0];
+        [tip setTextColor:[UIColor colorWithRed:120.0/255 green:120.0/255 blue:120.0/255 alpha:1.0]];
+        [tip setHasGradientBackground:NO];
+        [tip presentPointingAtView:self inView:self.superview animated:YES];
+        [tip autoDismissAnimated:YES atTimeInterval:1.5];
+    }
+
 }
 
 @end

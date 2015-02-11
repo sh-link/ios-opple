@@ -11,6 +11,7 @@
 		350FBB4E1A82F47D00363DBF /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FBB4D1A82F47D00363DBF /* SearchViewController.m */; };
 		350FBB511A83990E00363DBF /* SHSearchRoationLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FBB501A83990E00363DBF /* SHSearchRoationLayer.m */; };
 		350FBB5E1A84AEAD00363DBF /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FBB5D1A84AEAD00363DBF /* CMPopTipView.m */; };
+		350FBB611A84BE5C00363DBF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350FBB601A84BE5C00363DBF /* LoginViewController.m */; };
 		35B7A3B71A70F1E000E909C5 /* SHDeviceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3B61A70F1E000E909C5 /* SHDeviceConnector.m */; };
 		35B7A3BB1A70F6AE00E909C5 /* SHDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */; };
 		35B7A3BE1A70F6C800E909C5 /* SHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BD1A70F6C800E909C5 /* SHRouter.m */; };
@@ -37,6 +38,9 @@
 		35CD44751A6E5F5300F6507F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35CD44731A6E5F5300F6507F /* LaunchScreen.xib */; };
 		35CD44811A6E5F5300F6507F /* SHLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD44801A6E5F5300F6507F /* SHLinkTests.m */; };
 		35CD448E1A6F3EE000F6507F /* SHLinkPacketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CD448D1A6F3EE000F6507F /* SHLinkPacketTests.m */; };
+		35D2964E1A88BA170068A7A3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D2964D1A88BA170068A7A3 /* MBProgressHUD.m */; };
+		35D296521A88DF3C0068A7A3 /* NetworkInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D296511A88DF3C0068A7A3 /* NetworkInfoViewController.m */; };
+		35D296561A89AE620068A7A3 /* ZXingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D296551A89AE620068A7A3 /* ZXingViewController.m */; };
 		35D40E221A75EB810055E7CC /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E1A1A75EB810055E7CC /* ALView+PureLayout.m */; };
 		35D40E231A75EB810055E7CC /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E1C1A75EB810055E7CC /* NSArray+PureLayout.m */; };
 		35D40E241A75EB810055E7CC /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E1E1A75EB810055E7CC /* NSLayoutConstraint+PureLayout.m */; };
@@ -46,6 +50,7 @@
 		35D40E311A75ED540055E7CC /* LanSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E301A75ED540055E7CC /* LanSettingViewController.m */; };
 		35D40E351A7631E50055E7CC /* des.c in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E341A7631E50055E7CC /* des.c */; };
 		35D40E391A7660FC0055E7CC /* SHRectangleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D40E381A7660FC0055E7CC /* SHRectangleButton.m */; };
+		35D74C7D1A8A2E4D005D2E4A /* AccountControlTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D74C7C1A8A2E4D005D2E4A /* AccountControlTool.m */; };
 		35EB60441A723490003C63DB /* SHLinkDeviceSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EB60431A723490003C63DB /* SHLinkDeviceSearchTests.m */; };
 		35EB60461A72443B003C63DB /* Packet.c in Sources */ = {isa = PBXBuildFile; fileRef = 35EB60451A72443B003C63DB /* Packet.c */; };
 		35EB60491A737CF2003C63DB /* md5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35EB60481A737CF2003C63DB /* md5.cpp */; };
@@ -71,6 +76,8 @@
 		350FBB501A83990E00363DBF /* SHSearchRoationLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHSearchRoationLayer.m; path = Views/SHSearchRoationLayer.m; sourceTree = "<group>"; };
 		350FBB5C1A84AEAD00363DBF /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
 		350FBB5D1A84AEAD00363DBF /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
+		350FBB5F1A84BE5C00363DBF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Mains/LoginViewController.h; sourceTree = "<group>"; };
+		350FBB601A84BE5C00363DBF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Mains/LoginViewController.m; sourceTree = "<group>"; };
 		35B7A3B51A70F1E000E909C5 /* SHDeviceConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDeviceConnector.h; path = NetworkModel/SHDeviceConnector.h; sourceTree = "<group>"; };
 		35B7A3B61A70F1E000E909C5 /* SHDeviceConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDeviceConnector.m; path = NetworkModel/SHDeviceConnector.m; sourceTree = "<group>"; };
 		35B7A3B91A70F6AE00E909C5 /* SHDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDevice.h; path = Model/SHDevice.h; sourceTree = "<group>"; };
@@ -122,6 +129,13 @@
 		35CD44801A6E5F5300F6507F /* SHLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLinkTests.m; sourceTree = "<group>"; };
 		35CD448C1A6E7FBA00F6507F /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Packet.h; path = NetworkModel/Packet.h; sourceTree = "<group>"; };
 		35CD448D1A6F3EE000F6507F /* SHLinkPacketTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLinkPacketTests.m; sourceTree = "<group>"; };
+		35D2964A1A8897FE0068A7A3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		35D2964C1A88BA170068A7A3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		35D2964D1A88BA170068A7A3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		35D296501A88DF3C0068A7A3 /* NetworkInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkInfoViewController.h; path = NetworkInfo/NetworkInfoViewController.h; sourceTree = "<group>"; };
+		35D296511A88DF3C0068A7A3 /* NetworkInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkInfoViewController.m; path = NetworkInfo/NetworkInfoViewController.m; sourceTree = "<group>"; };
+		35D296541A89AE620068A7A3 /* ZXingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZXingViewController.h; path = ZXing/ZXingViewController.h; sourceTree = "<group>"; };
+		35D296551A89AE620068A7A3 /* ZXingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZXingViewController.m; path = ZXing/ZXingViewController.m; sourceTree = "<group>"; };
 		35D40E191A75EB810055E7CC /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
 		35D40E1A1A75EB810055E7CC /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
 		35D40E1B1A75EB810055E7CC /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
@@ -143,6 +157,8 @@
 		35D40E341A7631E50055E7CC /* des.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = des.c; path = Tool/des.c; sourceTree = "<group>"; };
 		35D40E371A7660FC0055E7CC /* SHRectangleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHRectangleButton.h; path = Views/SHRectangleButton.h; sourceTree = "<group>"; };
 		35D40E381A7660FC0055E7CC /* SHRectangleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHRectangleButton.m; path = Views/SHRectangleButton.m; sourceTree = "<group>"; };
+		35D74C7B1A8A2E4D005D2E4A /* AccountControlTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountControlTool.h; sourceTree = "<group>"; };
+		35D74C7C1A8A2E4D005D2E4A /* AccountControlTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountControlTool.m; sourceTree = "<group>"; };
 		35EB60431A723490003C63DB /* SHLinkDeviceSearchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLinkDeviceSearchTests.m; sourceTree = "<group>"; };
 		35EB60451A72443B003C63DB /* Packet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Packet.c; path = NetworkModel/Packet.c; sourceTree = "<group>"; };
 		35EB60471A737CF2003C63DB /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = md5.h; path = Tool/md5.h; sourceTree = "<group>"; };
@@ -222,6 +238,8 @@
 				35CAB75E1A7F68ED00EA1E16 /* HomeViewController.m */,
 				350FBB4C1A82F47D00363DBF /* SearchViewController.h */,
 				350FBB4D1A82F47D00363DBF /* SearchViewController.m */,
+				350FBB5F1A84BE5C00363DBF /* LoginViewController.h */,
+				350FBB601A84BE5C00363DBF /* LoginViewController.m */,
 			);
 			name = Mains;
 			sourceTree = "<group>";
@@ -269,10 +287,14 @@
 		35CD44631A6E5F5300F6507F /* SHLink */ = {
 			isa = PBXGroup;
 			children = (
+				35D74C7A1A8A2E4D005D2E4A /* AccountStorage */,
+				35D2964B1A88BA170068A7A3 /* HUD */,
 				350FBB5B1A84AEAD00363DBF /* CMPopTipView */,
 				35D40E361A7660D60055E7CC /* Views */,
+				35D296531A89AE450068A7A3 /* ZXing */,
 				35CAB7671A80CC4400EA1E16 /* Accounts */,
 				35CAB7601A7F9BDC00EA1E16 /* DeviceList */,
+				35D2964F1A88DF120068A7A3 /* NetworkInfo */,
 				35CAB75C1A7F68A100EA1E16 /* Mains */,
 				35D40E281A75EC730055E7CC /* Settings */,
 				35D40E181A75EB810055E7CC /* pureLayout */,
@@ -296,6 +318,7 @@
 			children = (
 				35CD44651A6E5F5300F6507F /* Info.plist */,
 				35CD44661A6E5F5300F6507F /* main.m */,
+				35D2964A1A8897FE0068A7A3 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -328,6 +351,33 @@
 				35B7A3B61A70F1E000E909C5 /* SHDeviceConnector.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		35D2964B1A88BA170068A7A3 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				35D2964C1A88BA170068A7A3 /* MBProgressHUD.h */,
+				35D2964D1A88BA170068A7A3 /* MBProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		35D2964F1A88DF120068A7A3 /* NetworkInfo */ = {
+			isa = PBXGroup;
+			children = (
+				35D296501A88DF3C0068A7A3 /* NetworkInfoViewController.h */,
+				35D296511A88DF3C0068A7A3 /* NetworkInfoViewController.m */,
+			);
+			name = NetworkInfo;
+			sourceTree = "<group>";
+		};
+		35D296531A89AE450068A7A3 /* ZXing */ = {
+			isa = PBXGroup;
+			children = (
+				35D296541A89AE620068A7A3 /* ZXingViewController.h */,
+				35D296551A89AE620068A7A3 /* ZXingViewController.m */,
+			);
+			name = ZXing;
 			sourceTree = "<group>";
 		};
 		35D40E181A75EB810055E7CC /* pureLayout */ = {
@@ -397,6 +447,15 @@
 				35CAB7511A7DFC4100EA1E16 /* SHSlideLayer.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		35D74C7A1A8A2E4D005D2E4A /* AccountStorage */ = {
+			isa = PBXGroup;
+			children = (
+				35D74C7B1A8A2E4D005D2E4A /* AccountControlTool.h */,
+				35D74C7C1A8A2E4D005D2E4A /* AccountControlTool.m */,
+			);
+			path = AccountStorage;
 			sourceTree = "<group>";
 		};
 		4C142ABF23E100BF7E71B60F /* Pods */ = {
@@ -558,6 +617,7 @@
 				35D40E391A7660FC0055E7CC /* SHRectangleButton.m in Sources */,
 				35D40E241A75EB810055E7CC /* NSLayoutConstraint+PureLayout.m in Sources */,
 				35CAB7631A7F9C5600EA1E16 /* DeviceListViewController.m in Sources */,
+				35D296521A88DF3C0068A7A3 /* NetworkInfoViewController.m in Sources */,
 				35CAB7661A7FA0E000EA1E16 /* SHDeviceListCell.m in Sources */,
 				35CAB74F1A7DFC2B00EA1E16 /* SHCarveLayer.m in Sources */,
 				35CAB7551A7E1C9200EA1E16 /* PppoeSettingViewController.m in Sources */,
@@ -567,16 +627,20 @@
 				35CAB7401A78E23100EA1E16 /* SHSquareButton.m in Sources */,
 				350FBB4E1A82F47D00363DBF /* SearchViewController.m in Sources */,
 				35D40E231A75EB810055E7CC /* NSArray+PureLayout.m in Sources */,
+				35D2964E1A88BA170068A7A3 /* MBProgressHUD.m in Sources */,
 				35CD446A1A6E5F5300F6507F /* AppDelegate.m in Sources */,
 				35CAB75F1A7F68ED00EA1E16 /* HomeViewController.m in Sources */,
 				35CAB76A1A80CC7300EA1E16 /* AccountViewController.m in Sources */,
+				35D74C7D1A8A2E4D005D2E4A /* AccountControlTool.m in Sources */,
 				35B7A3C21A70FB2F00E909C5 /* Reachability.m in Sources */,
 				35B7A3B71A70F1E000E909C5 /* SHDeviceConnector.m in Sources */,
 				35CAB7521A7DFC4100EA1E16 /* SHSlideLayer.m in Sources */,
+				35D296561A89AE620068A7A3 /* ZXingViewController.m in Sources */,
 				35CD44671A6E5F5300F6507F /* main.m in Sources */,
 				35D40E311A75ED540055E7CC /* LanSettingViewController.m in Sources */,
 				35B7A3BB1A70F6AE00E909C5 /* SHDevice.m in Sources */,
 				350FBB4B1A821B7B00363DBF /* WelcomeViewController.m in Sources */,
+				350FBB611A84BE5C00363DBF /* LoginViewController.m in Sources */,
 				35D40E221A75EB810055E7CC /* ALView+PureLayout.m in Sources */,
 				35CAB74C1A7B73D800EA1E16 /* SHSlideMenu.m in Sources */,
 				350FBB5E1A84AEAD00363DBF /* CMPopTipView.m in Sources */,
@@ -707,7 +771,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SHLink/PrefixHeader.pch";
 				INFOPLIST_FILE = SHLink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -719,7 +786,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SHLink/PrefixHeader.pch";
 				INFOPLIST_FILE = SHLink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

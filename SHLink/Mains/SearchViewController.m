@@ -12,6 +12,8 @@
 #import "Reachability.h"
 #import "SHDeviceConnector.h"
 #import "SHRouter.h"
+#import "AccountControlTool.h"
+
 #import <SystemConfiguration/CaptiveNetwork.h>
 
 typedef NS_ENUM(int, SHSearchState) {
@@ -19,9 +21,10 @@ typedef NS_ENUM(int, SHSearchState) {
     SHSearchStateSearching,
     SHSearchStateNotFound,
     SHSearchStateSuccess,
+    SHSearchStateLogin,
 };
 
-#define searchLoopCount 1.0
+#define searchLoopCount 8
 
 @interface SearchViewController ()
 
@@ -46,6 +49,8 @@ typedef NS_ENUM(int, SHSearchState) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [SHRouter currentRouter].directLogin = NO;
     // Do any additional setup after loading the view.
 }
 
@@ -84,7 +89,7 @@ typedef NS_ENUM(int, SHSearchState) {
         
         __strong SearchViewController *strongWeak = weakSelf;
         dispatch_async(dispatch_get_main_queue(), ^{
-            device ? [strongWeak setCurrentState:SHSearchStateSuccess] : [weakSelf setCurrentState:SHSearchStateSuccess];
+            device ? [strongWeak setCurrentState:SHSearchStateSuccess] : [weakSelf setCurrentState:SHSearchStateNotFound];
         });
     });
 }
@@ -112,7 +117,7 @@ typedef NS_ENUM(int, SHSearchState) {
         _infoLabel.text = @"未发现SHLink路由器";
         _infoLabel.textColor = [UIColor redColor];
         
-        [_confirmButton setTitle:@"连接网络" forState:UIControlStateNormal];
+        [_confirmButton setTitle:@"重新搜索" forState:UIControlStateNormal];
         [_confirmButton removeTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
         [_confirmButton addTarget:self action:@selector(connectWifiSetting) forControlEvents:UIControlEventTouchUpInside];
         
@@ -139,6 +144,16 @@ typedef NS_ENUM(int, SHSearchState) {
         [_confirmButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
         
         _confirmButton.inSearching = NO;
+    } else if (currentState == SHSearchStateLogin) {
+        
+        _infoLabel.text = [NSString stringWithFormat:@"您已连接至网络: \"%@\"",[self getCurrentConnectSsid]];
+        _infoLabel.textColor = [UIColor colorWithRed:85.0/255.0f green:85.0/255.0f blue:85.0/255.0f alpha:1.0f];
+        
+        [_confirmButton setTitle:@"登陆中" forState:UIControlStateNormal];
+        [_confirmButton removeTarget:self action:@selector(connectWifiSetting) forControlEvents:UIControlEventTouchUpInside];
+        [_confirmButton removeTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+        
+        _confirmButton.inSearching = YES;
     }
 }
 
@@ -146,15 +161,31 @@ typedef NS_ENUM(int, SHSearchState) {
 #pragma mark -
 
 - (void)connectWifiSetting {
-    NSLog(@"connect wifi");
-    NSURL *url = [NSURL URLWithString:@"prefs:root=WIFI"];
-    [[UIApplication sharedApplication] openURL:url];
+    [self searchRouter];
 }
 
 - (void)login {
-    NSLog(@"login");
-    [self performSegueWithIdentifier:@"searchToHomeSegue" sender:self];
+    
+    NSString *usernameStor = [AccountControlTool getStoragedUserNameWithMac:[SHRouter currentRouter].mac];
+    NSString *passwordStor = [AccountControlTool getStoragedPasswordWithMac:[SHRouter currentRouter].mac];
+    
+    if (usernameStor && passwordStor) {
+        self.currentState = SHSearchStateLogin;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            NSError *error;
+            BOOL ret = [SHDeviceConnector syncChallengeDeviceWithIp:[SHRouter currentRouter].ip Port:[SHRouter currentRouter].tcpPort Username:usernameStor Password:passwordStor TimeoutInSec:2 Error:&error];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                if (ret) [SHRouter currentRouter].directLogin = YES;
+                    
+                ret ? [self performSegueWithIdentifier:@"searchToHomeSegue" sender:self] : [self performSegueWithIdentifier:@"searchToLoginSegue" sender:self];
+            });
+        });
+    } else [self performSegueWithIdentifier:@"searchToLoginSegue" sender:self];
 }
+
 
 #pragma mark - Tools
 #pragma mark -

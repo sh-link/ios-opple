@@ -42,6 +42,12 @@
 #define SHRequestType_GetWlanSchedule       10
 #define SHRequestType_PowerOff              12
 
+#define SHControlStatus_Success  0
+#define SHControlStatus_UserNotExist  3
+#define SHControlStatus_WrongPsw  4
+#define SHControlStatus_Failed  5
+
+
 #define PACKET_CHECK_VERSION(_version, _packet) (*(int *)(((_SHHeader *)(_packet))->version) == htonl(_version))
 #define PACKET_CHECK_TYPE(_type, _packet) (*(int *)(((_SHHeader *)(_packet))->type) == htonl(_type))
 

@@ -69,7 +69,7 @@
 
   CGFloat blackComponents[] = {0.0f, 1.0f};
   CGColorRef black = CGColorCreate(colorSpace, blackComponents);
-  CGFloat whiteComponents[] = {1.0f, 1.0f};
+  CGFloat whiteComponents[] = {0.92f, 1.0f};
   CGColorRef white = CGColorCreate(colorSpace, whiteComponents);
 
   CFRelease(colorSpace);

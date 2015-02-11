@@ -12,6 +12,11 @@
 
 @property (nonatomic) UIImage *shLeftImage;
 
+/**
+ *  Shake text failed with pop up error info.
+ *
+ *  @param text pop up error info, just shake if pass nil.
+ */
 - (void)shakeWithText:(NSString *)text;
 
 

@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "SHMenuCell.h"
+#import "SHRouter.h"
 
 @interface HomeViewController ()
 
@@ -30,6 +31,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[SHRouter currentRouter] updateRouterInfo];
+    });
     // Do any additional setup after loading the view.
 }
 
@@ -63,11 +68,15 @@
     _shareWifiCell = [[SHMenuCell alloc] init];
     _shareWifiCell.image = [UIImage imageNamed:@"iconTest3"];
     _shareWifiCell.title = @"分享wifi";
+    _shareWifiCell.caller = self;
+    _shareWifiCell.selector = @selector(shareWifiCellTapped);
     [self.contentView addSubview:_shareWifiCell];
     
     _netInfoCell = [[SHMenuCell alloc] init];
     _netInfoCell.image = [UIImage imageNamed:@"iconTest3"];
     _netInfoCell.title = @"获取网络信息";
+    _netInfoCell.caller = self;
+    _netInfoCell.selector = @selector(networkInfoCellTapped);
     [self.contentView addSubview:_netInfoCell];
     
     _scheduleCell = [[SHMenuCell alloc] init];
@@ -78,8 +87,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSLog(@"content: %@",NSStringFromCGRect(_contentView.frame));
-    NSLog(@"scroll: %@",NSStringFromCGRect(_scrollView.frame));
 }
 
 - (void)updateViewConstraints {
@@ -148,6 +155,14 @@
 
 - (void)changeAccountCellTapped {
     [self performSegueWithIdentifier:@"accountSegue" sender:self];
+}
+
+- (void)networkInfoCellTapped {
+    [self performSegueWithIdentifier:@"homeToNetworkInfoSegue" sender:self];
+}
+
+- (void)shareWifiCellTapped {
+    [self performSegueWithIdentifier:@"homeToZxingSegue" sender:self];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "Reachability.h"
+#include <arpa/inet.h>
 
 @interface SHLinkTests : XCTestCase
 
@@ -33,7 +35,19 @@
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+        
+        NSString *ip = @"34.8.2.133";
+        unsigned short tcpPort = 23;
+        
+        struct sockaddr_in deviceAddr;
+        bzero(&deviceAddr, sizeof(deviceAddr));
+        deviceAddr.sin_family = AF_INET;
+        deviceAddr.sin_port = htons(tcpPort);
+        deviceAddr.sin_len = sizeof(deviceAddr);
+        inet_pton(AF_INET, [ip UTF8String], &deviceAddr.sin_addr.s_addr);
+        
+        NSLog(@" hey: %d",[Reachability reachabilityWithAddress:&deviceAddr].currentReachabilityStatus == ReachableViaWiFi);
+
     }];
 }
 
