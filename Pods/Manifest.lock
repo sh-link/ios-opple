@@ -1,12 +1,15 @@
 PODS:
+  - IQKeyboardManager (3.2.1.0)
   - ZXingObjC (3.0.3):
     - ZXingObjC/All
   - ZXingObjC/All (3.0.3)
 
 DEPENDENCIES:
+  - IQKeyboardManager
   - ZXingObjC (~> 3.0)
 
 SPEC CHECKSUMS:
+  IQKeyboardManager: 167388b27d0194abc50b2ffc3cc16b881a8227df
   ZXingObjC: 1eebdf4334b7de660ae42ddd23bd97b6d777b07d
 
 COCOAPODS: 0.34.1

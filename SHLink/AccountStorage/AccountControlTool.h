@@ -26,3 +26,4 @@
 +(void)storageUserName:(NSString *)username Password:(NSString *)password ForMac:(NSString *)mac;
 
 @end
+ 
