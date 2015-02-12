@@ -10,7 +10,9 @@
 
 @interface SHDevice : NSObject
 
-@property (nonatomic, retain) NSString *ip;
+@property (nonatomic, retain) NSString *lanIp;
+@property (nonatomic, retain) NSString *wanIp;
+
 @property (nonatomic, retain) NSString *mac;
 
 @property (nonatomic, retain) NSString *username;

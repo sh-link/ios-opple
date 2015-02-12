@@ -8,6 +8,12 @@
 
 #import "SHDevice.h"
 
+typedef NS_ENUM(int, _WanConfigType) {
+    WanConfigTypePPPOE = 1,
+    WanConfigTypeDHCP = 2,
+    WanConfigTypeStatic = 3,
+};
+
 @interface SHRouter : SHDevice
 
 //a puppy die for that, sorry
@@ -37,14 +43,19 @@
 @property (nonatomic) BOOL wanIsConnected;
 
 /**
- *  IP mask
+ *  Lan ip mask
  */
-@property (nonatomic) NSString *mask;
+@property (nonatomic) NSString *LanMask;
 
 /**
- *  IP gateway
+ *  Wan ip mask
  */
-@property (nonatomic) NSString *gateway;
+@property (nonatomic) NSString *wanMask;
+
+/**
+ *  Wan ip gateway
+ */
+@property (nonatomic) NSString *wanGateway;
 
 /**
  *  IP DNS address
@@ -80,6 +91,21 @@
  *  Wifi key
  */
 @property (nonatomic) NSString *wifiKey;
+
+/**
+ *  Router's current wan config type.
+ */
+@property (nonatomic) _WanConfigType currentWanCfgType;
+
+/**
+ *  PPPoE username
+ */
+@property (nonatomic) NSString *pppoeUsername;
+
+/**
+ *  PPPoE Password
+ */
+@property (nonatomic) NSString *pppoePassword;
 
 /**
  *  Get the shared instance of SHRouter.
@@ -131,5 +157,49 @@
  */
 - (BOOL)setWifiWithSsid:(NSString *)ssid WifiKey:(NSString *)key Channel:(int)channel Error:(NSError **)error;
 
+/**
+ *  Set router's lan config, if success, will update properties.
+ *
+ *  @param ip    Ip address to set.
+ *  @param mask  Mask address to set.
+ *  @param error Error
+ *
+ *  @return YES if success.
+ */
+- (BOOL)setLanIP:(NSString *)ip Mask:(NSString *)mask Error:(NSError **)error;
+
+/**
+ *  Set router's wan type to PPPoE.
+ *
+ *  @param pppoeUsername PPPoE username
+ *  @param pppoePassword PPPoE password
+ *  @param error         Error
+ *
+ *  @return YES if success.
+ */
+- (BOOL)setWanPPPoEWithUsername:(NSString *)pppoeUsername Password:(NSString *)pppoePassword Error:(NSError **)error;
+
+/**
+ *  Set router's wan type to DHCP.
+ *
+ *  @param error Error
+ *
+ *  @return YES if success.
+ */
+- (BOOL)setWanDHCPWithError:(NSError **)error;
+
+/**
+ *  Set router's wan type to static ip.
+ *
+ *  @param wanIp      Wan ip address
+ *  @param wanMask    Wan mask address
+ *  @param wanGateway Wan getway address
+ *  @param dns1       DNS address
+ *  @param dns2       Backup DNS address
+ *  @param error      Error
+ *
+ *  @return YES if success.
+ */
+- (BOOL)setWanStaticIPWithIP:(NSString *)wanIp Mask:(NSString *)wanMask Gateway:(NSString *)wanGateway Dns1:(NSString *)dns1 Dns2:(NSString *)dns2 Error:(NSError **)error;
 
 @end

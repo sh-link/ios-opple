@@ -15,7 +15,6 @@
 		35B7A3B71A70F1E000E909C5 /* SHDeviceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3B61A70F1E000E909C5 /* SHDeviceConnector.m */; };
 		35B7A3BB1A70F6AE00E909C5 /* SHDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */; };
 		35B7A3BE1A70F6C800E909C5 /* SHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BD1A70F6C800E909C5 /* SHRouter.m */; };
-		35B7A3C21A70FB2F00E909C5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3C01A70FB2F00E909C5 /* Reachability.m */; };
 		35CAB7401A78E23100EA1E16 /* SHSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB73F1A78E23100EA1E16 /* SHSquareButton.m */; };
 		35CAB7431A790F0400EA1E16 /* SHMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB7421A790F0400EA1E16 /* SHMenuCell.m */; };
 		35CAB7461A79C24400EA1E16 /* SHShadowLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB7451A79C24400EA1E16 /* SHShadowLayer.m */; };
@@ -84,8 +83,6 @@
 		35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDevice.m; path = Model/SHDevice.m; sourceTree = "<group>"; };
 		35B7A3BC1A70F6C800E909C5 /* SHRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHRouter.h; path = Model/SHRouter.h; sourceTree = "<group>"; };
 		35B7A3BD1A70F6C800E909C5 /* SHRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHRouter.m; path = Model/SHRouter.m; sourceTree = "<group>"; };
-		35B7A3C01A70FB2F00E909C5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Tool/Reachability.m; sourceTree = "<group>"; };
-		35B7A3C11A70FB2F00E909C5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Tool/Reachability.h; sourceTree = "<group>"; };
 		35CAB73E1A78E23100EA1E16 /* SHSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHSquareButton.h; path = Views/SHSquareButton.h; sourceTree = "<group>"; };
 		35CAB73F1A78E23100EA1E16 /* SHSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHSquareButton.m; path = Views/SHSquareButton.m; sourceTree = "<group>"; };
 		35CAB7411A790F0400EA1E16 /* SHMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMenuCell.h; path = Views/SHMenuCell.h; sourceTree = "<group>"; };
@@ -223,8 +220,6 @@
 				35D40E341A7631E50055E7CC /* des.c */,
 				35EB60471A737CF2003C63DB /* md5.h */,
 				35EB60481A737CF2003C63DB /* md5.cpp */,
-				35B7A3C11A70FB2F00E909C5 /* Reachability.h */,
-				35B7A3C01A70FB2F00E909C5 /* Reachability.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -632,7 +627,6 @@
 				35CAB75F1A7F68ED00EA1E16 /* HomeViewController.m in Sources */,
 				35CAB76A1A80CC7300EA1E16 /* AccountViewController.m in Sources */,
 				35D74C7D1A8A2E4D005D2E4A /* AccountControlTool.m in Sources */,
-				35B7A3C21A70FB2F00E909C5 /* Reachability.m in Sources */,
 				35B7A3B71A70F1E000E909C5 /* SHDeviceConnector.m in Sources */,
 				35CAB7521A7DFC4100EA1E16 /* SHSlideLayer.m in Sources */,
 				35D296561A89AE620068A7A3 /* ZXingViewController.m in Sources */,

@@ -32,21 +32,26 @@
     XCTAssert(YES, @"Pass");
 }
 
-- (void)testPerformanceExample {
+- (void)testInternetConnectable {
+    
+}
+
+- (void)testReachabilityPerformance {
     // This is an example of a performance test case.
     [self measureBlock:^{
-        
-        NSString *ip = @"34.8.2.133";
-        unsigned short tcpPort = 23;
-        
-        struct sockaddr_in deviceAddr;
-        bzero(&deviceAddr, sizeof(deviceAddr));
-        deviceAddr.sin_family = AF_INET;
-        deviceAddr.sin_port = htons(tcpPort);
-        deviceAddr.sin_len = sizeof(deviceAddr);
-        inet_pton(AF_INET, [ip UTF8String], &deviceAddr.sin_addr.s_addr);
-        
-        NSLog(@" hey: %d",[Reachability reachabilityWithAddress:&deviceAddr].currentReachabilityStatus == ReachableViaWiFi);
+        XCTAssert([Reachability reachabilityWithHostName:@"www.baidu.com"].currentReachabilityStatus == ReachableViaWiFi, @"Not reachable!");
+        [Reachability reachabilityForInternetConnection];
+//        NSString *ip = @"34.8.2.133";
+//        unsigned short tcpPort = 23;
+//        
+//        struct sockaddr_in deviceAddr;
+//        bzero(&deviceAddr, sizeof(deviceAddr));
+//        deviceAddr.sin_family = AF_INET;
+//        deviceAddr.sin_port = htons(tcpPort);
+//        deviceAddr.sin_len = sizeof(deviceAddr);
+//        inet_pton(AF_INET, [ip UTF8String], &deviceAddr.sin_addr.s_addr);
+//        
+//        NSLog(@" hey: %d",[Reachability reachabilityWithAddress:&deviceAddr].currentReachabilityStatus == ReachableViaWiFi);
 
     }];
 }

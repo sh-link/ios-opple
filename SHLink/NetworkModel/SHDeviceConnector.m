@@ -109,7 +109,7 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
         
         SHDevice *device = [[SHDevice alloc] init];
         
-        device.ip = [NSString stringWithUTF8String:inet_ntop(AF_INET, reply->ip, ip, INET_ADDRSTRLEN)];
+        device.lanIp = [NSString stringWithUTF8String:inet_ntop(AF_INET, reply->ip, ip, INET_ADDRSTRLEN)];
         device.mac = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",reply->mac[0],reply->mac[1],reply->mac[2],reply->mac[3],reply->mac[4],reply->mac[5]];
         
         return device;
@@ -127,6 +127,9 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     _SHChallenge challengePacket;
     char readBuf[256];
     _SHChallengeReply *reply;
+    
+    if (timeout <= 0) timeout = 2;
+    if (port <= 0) port = 10246;
     
     sockFd = [self tcpConnectDeviceWithIp:ip Port:port TimeoutInSec:timeout];
     if (sockFd < 0) {
@@ -217,6 +220,9 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     char readBuf[1024];
     _SHChallengeReply *reply;
     
+    if (timeout <= 0) timeout = 2;
+    if (port <= 0) port = 10246;
+    
     sockFd = [self tcpConnectDeviceWithIp:ip Port:port TimeoutInSec:timeout];
     if (sockFd < 0) {
         if (error) *error = [NSError errorWithDomain:SHErrorDomain code:SHError_Unreachable userInfo:@{NSLocalizedDescriptionKey: @"Can not connect to the router."}];
@@ -262,6 +268,16 @@ static unsigned char SHDesSrc[8] = {0xde,0xad,0xbe,0xaf,0xca,0xfe,0xba,0xbe};
     }
     
     reply = (_SHControlRely *)readBuf;
+    
+    NSLog(@"%d",SHPacketType_Detect);
+    NSLog(@"%d",SHPacketType_DetectReply);
+    NSLog(@"%d",SHPacketType_Challenge);
+    NSLog(@"%d",SHPacketType_ChallengeReply);
+    NSLog(@"%d",SHPacketType_Control);
+    NSLog(@"%d",SHPacketType_ControlReply);
+    
+    
+    NSLog(@"type: %d", ntohl(*(int *)reply->header.type));
     
     if (PACKET_CHECK_TYPE(SHPacketType_ControlReply, reply)) {
         int status = ntohl(*(int *)reply->status);

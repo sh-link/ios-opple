@@ -170,17 +170,18 @@ typedef NS_ENUM(int, _STATE) {
                 [self setState:_stateFaild];
                 
             } else {
+                
                 _ssidLB.text = [NSString stringWithFormat:@"网络名称: %@",router.ssid];
                 _wifiKeyLB.text = [NSString stringWithFormat:@"连接密码: %@",router.wifiKey];
                 _channelLB.text = [NSString stringWithFormat:@"通信信道: %d",router.channel];
                 
                 if (router.wanIsConnected) {
                     
-                    _ipLB.text = [NSString stringWithFormat:@"IP地址: %@",router.ip];
-                    _maskLB.text = [NSString stringWithFormat:@"子网掩码: %@",router.mask];
+                    _ipLB.text = [NSString stringWithFormat:@"IP地址: %@",router.wanIp];
+                    _maskLB.text = [NSString stringWithFormat:@"子网掩码: %@",router.wanMask];
                     
                     _gatewayLB.textColor = _ipLB.textColor;
-                    _gatewayLB.text = [NSString stringWithFormat:@"网关地址: %@",router.gateway];
+                    _gatewayLB.text = [NSString stringWithFormat:@"网关地址: %@",router.wanGateway];
                     
                     _dns1LB.text = [NSString stringWithFormat:@"DNS1: %@",router.dns1];
                     _dns2LB.text = [NSString stringWithFormat:@"DNS2: %@",router.dns2];
@@ -189,7 +190,7 @@ typedef NS_ENUM(int, _STATE) {
                     
                 } else {
                     
-                    _ipLB.text = [NSString stringWithFormat:@"IP地址: %@",router.ip];;
+                    _ipLB.text = nil;
                     _maskLB.text = nil;
                     
                     _gatewayLB.textColor = [UIColor redColor];

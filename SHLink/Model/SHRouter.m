@@ -15,6 +15,8 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 
+
+
 @implementation SHRouter
 
 + (instancetype)currentRouter {
@@ -24,7 +26,7 @@
         sharedInstance = [[SHRouter alloc] init];
         sharedInstance.tcpPort = 10246;
         
-        sharedInstance.ip = @"192.168.0.1";
+        sharedInstance.lanIp = @"192.168.0.1";
         sharedInstance.username = @"admin";
         sharedInstance.password = @"111111";
     });
@@ -42,8 +44,8 @@
     }
     
 //    NSError *error = nil;
-    [self getClientListWithError:nil];
-    [self getNetworkSettingInfoWithError:nil];
+//    [self getClientListWithError:nil];
+//    [self getNetworkSettingInfoWithError:nil];
     
     return YES;
 }
@@ -51,11 +53,11 @@
 - (NSArray *)getClientListWithError:(NSError **)error {
     
     NSData *commandJson = [NSJSONSerialization dataWithJSONObject:@{@"REQ_TYPE":@SHRequestType_GetClientList} options:0 error:nil];
+    NSLog(@"%@",self.lanIp);
+    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.lanIp Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
     
-    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.ip Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
-    
-    if (error && *error) {
-        NSLog(@"%@",[*error localizedDescription]);
+    if ((error && *error) || !receviceJson) {
+        if (error && *error)  NSLog(@"%@",[*error localizedDescription]);
         return nil;
     }
     
@@ -74,10 +76,10 @@
     
     NSData *commandJson = [NSJSONSerialization dataWithJSONObject:@{@"REQ_TYPE":@SHRequestType_GetNetworkInfo} options:0 error:nil];
     
-    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.ip Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
+    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.lanIp Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
     
-    if (error && *error) {
-        NSLog(@"%@",[*error localizedDescription]);
+    if ((error && *error) || !receviceJson) {
+        if (error && *error)  NSLog(@"%@",[*error localizedDescription]);
         return nil;
     }
     
@@ -94,8 +96,9 @@
             
             NSDictionary *wanCfg = receiveDic[@"WAN_CFG"];
             self.wanIsConnected = [wanCfg[@"WAN_ISCONNECTED"] intValue] == 1;
-            self.mask = wanCfg[@"MASK"];
-            self.gateway = wanCfg[@"GATEWAY"];
+            self.wanIp = wanCfg[@"IP"];
+            self.wanMask = wanCfg[@"MASK"];
+            self.wanGateway = wanCfg[@"GATEWAY"];
             self.dns1 = wanCfg[@"DNS1"];
             self.dns2 = wanCfg[@"DNS2"];
             self.txPktNum = [wanCfg[@"TX_BYTES"] longLongValue];
@@ -112,10 +115,10 @@
     
     NSData *commandJson = [NSJSONSerialization dataWithJSONObject:@{@"REQ_TYPE":@SHRequestType_SetAccount, @"USER":username, @"PASSWORD":password} options:0 error:nil];
     
-    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.ip Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
+    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.lanIp Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
     
     if ((error && *error) || !receviceJson) {
-        NSLog(@"%@",[*error localizedDescription]);
+        if (error && *error)  NSLog(@"%@",[*error localizedDescription]);
         return NO;
     }
     
@@ -129,10 +132,10 @@
     
     NSData *commandJson = [NSJSONSerialization dataWithJSONObject:@{@"REQ_TYPE":@SHRequestType_SetSsid, @"SSID":ssid, @"KEY":key, @"CHANNEL":[NSNumber numberWithInt:channel]} options:0 error:nil];
     
-    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.ip Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
+    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.lanIp Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
     
     if ((error && *error) || !receviceJson) {
-        NSLog(@"%@",[*error localizedDescription]);
+        if (error && *error)  NSLog(@"%@",[*error localizedDescription]);
         return NO;
     }
     
@@ -143,17 +146,91 @@
     return YES;
 }
 
+- (BOOL)setLanIP:(NSString *)ip Mask:(NSString *)mask Error:(NSError **)error {
+    
+    NSData *commandJson = [NSJSONSerialization dataWithJSONObject:@{@"REQ_TYPE":@SHRequestType_SetLan, @"IP":ip, @"MASK":mask} options:0 error:nil];
+    
+    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.lanIp Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
+    
+    if ((error && *error) || !receviceJson) {
+        if (error && *error)  NSLog(@"%@",[*error localizedDescription]);
+        return NO;
+    }
+    
+    self.lanIp= ip;
+    self.LanMask = mask;
+    
+    return YES;
+}
+
+- (BOOL)setWanPPPoEWithUsername:(NSString *)pppoeUsername Password:(NSString *)pppoePassword Error:(NSError **)error {
+    NSDictionary *cfgDic = @{@"UserName":pppoeUsername, @"PassWd": pppoePassword};
+    BOOL ret = [self setWanWithType:WanConfigTypePPPOE ConfigDic:cfgDic Error:error];
+    
+    if (ret) {
+        self.currentWanCfgType = WanConfigTypePPPOE;
+        self.pppoeUsername = pppoeUsername;
+        self.pppoePassword= pppoePassword;
+    }
+    
+    return  ret;
+}
+
+- (BOOL)setWanDHCPWithError:(NSError **)error {
+    
+    NSDictionary *cfgDic = @{};
+    
+    BOOL ret = [self setWanWithType:WanConfigTypeDHCP ConfigDic:cfgDic Error:error];
+    
+    if (ret) {
+        self.currentWanCfgType = WanConfigTypeDHCP;
+    }
+    
+    return  ret;
+}
+
+- (BOOL)setWanStaticIPWithIP:(NSString *)wanIp Mask:(NSString *)wanMask Gateway:(NSString *)wanGateway Dns1:(NSString *)dns1 Dns2:(NSString *)dns2 Error:(NSError **)error {
+    
+    NSDictionary *cfgDic = @{@"IP": wanIp, @"MASK": wanMask, @"GATEWAY": wanGateway, @"DNS1": dns1, @"DNS2": dns2};
+    
+    BOOL ret = [self setWanWithType:WanConfigTypeStatic ConfigDic:cfgDic Error:error];
+    
+    if (ret) {
+        
+        self.currentWanCfgType = WanConfigTypeStatic;
+        self.wanIp = wanIp;
+        self.wanMask = wanMask;
+        self.wanGateway = wanGateway;
+        self.dns1 = dns1;
+        self.dns2 = dns2;
+    }
+    
+    return  ret;
+}
+
 #pragma mark - Tools
 #pragma mark -
 
-
+- (BOOL)setWanWithType:(_WanConfigType)type ConfigDic:(NSDictionary *)dic Error:(NSError **)error {
+    
+    NSData *commandJson = [NSJSONSerialization dataWithJSONObject:@{@"REQ_TYPE":@SHRequestType_SetWan, @"WAN_TYPE":[NSNumber numberWithInt:type], @"WAN_CFG":dic} options:0 error:nil];
+    
+    NSData *receviceJson = [SHDeviceConnector syncSendCommandWithIp:self.lanIp Port:self.tcpPort Username:self.username Password:self.password Command:commandJson TimeoutInSec:3.0 Error:error];
+    
+    if ((error && *error) || !receviceJson) {
+        if (error && *error)  NSLog(@"%@",[*error localizedDescription]);
+        return NO;
+    }
+    
+    return YES;
+}
 
 #pragma mark - Properties
 #pragma mark -
 
 - (struct sockaddr_in)hostAddr {
     
-    NSString *ip = self.ip ? self.ip : @"192.168.0.1";
+    NSString *ip = self.lanIp ? self.lanIp : @"192.168.0.1";
     unsigned short tcpPort = self.tcpPort == 0 ? 10246 : self.tcpPort;
 
     struct sockaddr_in deviceAddr;

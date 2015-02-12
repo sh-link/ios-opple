@@ -5,7 +5,6 @@
 //  Created by 钱凯 on 15/1/22.
 //  Copyright (c) 2015年 Qiankai. All rights reserved.
 //
-//  搜索、登陆设备，提供同步和异步两种接口
 
 #import <Foundation/Foundation.h>
 #import "SHDevice.h"
@@ -66,8 +65,33 @@ timeout;
  */
 +(SHDevice *)syncSearchDeviceWithPort:(unsigned short)port TimeoutInSec:(int)timeout;
 
+/**
+ *  Sync login device.
+ *
+ *  @param ip             IP address
+ *  @param port           TCP port
+ *  @param usernameString Username
+ *  @param passwordString Password
+ *  @param timeout        Timeout in seconds, default is 2sec.
+ *  @param error          Error
+ *
+ *  @return YES if success.
+ */
 +(BOOL)syncChallengeDeviceWithIp:(NSString *)ip Port:(unsigned short)port Username:(NSString *)usernameString Password:(NSString *)passwordString TimeoutInSec:(int)timeout Error:(NSError **)error;
 
+/**
+ *  Sync send control command to SHRouter, payload is jason data.
+ *
+ *  @param ip             Ip address
+ *  @param port           TCP port
+ *  @param usernameString Login username
+ *  @param passwordString Login password
+ *  @param command        Command in jason data
+ *  @param timeout        Timeout in seconds, default is 2sec.
+ *  @param error          Error
+ *
+ *  @return Reply jason data if success, set error if error happens.
+ */
 +(NSData *)syncSendCommandWithIp:(NSString *)ip Port:(unsigned short)port Username:(NSString *)usernameString Password:(NSString *)passwordString Command:(NSData *)command TimeoutInSec:(int)timeout Error:(NSError **)error;
 
 @end

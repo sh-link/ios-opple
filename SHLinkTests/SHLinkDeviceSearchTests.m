@@ -44,7 +44,7 @@
     
     XCTAssertNotNil(device,@"Could not find SHRouter device!");
     
-    NSLog(@"IP: %@",device.ip);
+    NSLog(@"IP: %@",device.lanIp);
     NSLog(@"MAC:%@",device.mac);
     
     BOOL ret = [SHDeviceConnector syncChallengeDeviceWithIp:@"192.168.0.1" Port:10246 Username:@"admin" Password:@"111111" TimeoutInSec:2 Error:nil];

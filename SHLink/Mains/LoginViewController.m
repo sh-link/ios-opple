@@ -99,7 +99,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSError *error;
-        BOOL ret = [SHDeviceConnector syncChallengeDeviceWithIp:[SHRouter currentRouter].ip Port:[SHRouter currentRouter].tcpPort Username:_usernameTF.text Password:_pswTF.text TimeoutInSec:3 Error:&error];
+        BOOL ret = [SHDeviceConnector syncChallengeDeviceWithIp:[SHRouter currentRouter].lanIp Port:[SHRouter currentRouter].tcpPort Username:_usernameTF.text Password:_pswTF.text TimeoutInSec:3 Error:&error];
         
         sleep(2);
         

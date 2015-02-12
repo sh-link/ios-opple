@@ -83,7 +83,7 @@ typedef NS_ENUM(int, SHSearchState) {
         }
         
         if (device) {
-            [SHRouter currentRouter].ip = device.ip;
+            [SHRouter currentRouter].lanIp = device.lanIp;
             [SHRouter currentRouter].mac = device.mac;
         }
         
@@ -169,16 +169,21 @@ typedef NS_ENUM(int, SHSearchState) {
     NSString *usernameStor = [AccountControlTool getStoragedUserNameWithMac:[SHRouter currentRouter].mac];
     NSString *passwordStor = [AccountControlTool getStoragedPasswordWithMac:[SHRouter currentRouter].mac];
     
+    NSLog(@"Store Account: %@ : %@",usernameStor,passwordStor);
     if (usernameStor && passwordStor) {
         self.currentState = SHSearchStateLogin;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             NSError *error;
-            BOOL ret = [SHDeviceConnector syncChallengeDeviceWithIp:[SHRouter currentRouter].ip Port:[SHRouter currentRouter].tcpPort Username:usernameStor Password:passwordStor TimeoutInSec:2 Error:&error];
+            BOOL ret = [SHDeviceConnector syncChallengeDeviceWithIp:[SHRouter currentRouter].lanIp Port:[SHRouter currentRouter].tcpPort Username:usernameStor Password:passwordStor TimeoutInSec:2 Error:&error];
             
             dispatch_async(dispatch_get_main_queue(), ^{
 
-                if (ret) [SHRouter currentRouter].directLogin = YES;
+                if (ret) {
+                    [SHRouter currentRouter].directLogin = YES;
+                    [SHRouter currentRouter].username = usernameStor;
+                    [SHRouter currentRouter].password = passwordStor;
+                }
                     
                 ret ? [self performSegueWithIdentifier:@"searchToHomeSegue" sender:self] : [self performSegueWithIdentifier:@"searchToLoginSegue" sender:self];
             });

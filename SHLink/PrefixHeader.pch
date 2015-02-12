@@ -23,4 +23,10 @@
 
 #define SHAlert_SetWiFiFailed           @"设置WiFi失败，请检查网络连接。"
 
+#define SHAlert_SetLanFailed            @"设置Lan口参数失败，请检查网络连接。"
+#define SHAlert_SetLanSuccess           @"设置成功"
+
+#define SHAlert_SetWanFailed            @"设置失败，请检查网络连接。"
+#define SHAlert_SetWanSuccess           @"设置成功"
+
 #endif
