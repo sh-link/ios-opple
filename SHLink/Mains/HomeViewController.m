@@ -79,6 +79,7 @@
     _netInfoCell.selector = @selector(networkInfoCellTapped);
     [self.contentView addSubview:_netInfoCell];
     
+    //TODO
     _scheduleCell = [[SHMenuCell alloc] init];
     _scheduleCell.image = [UIImage imageNamed:@"iconTest3"];
     _scheduleCell.title = @"wifi定时开关";

@@ -69,7 +69,6 @@
     self.layer.masksToBounds = YES;
     CGContextRef contex = UIGraphicsGetCurrentContext();
     
-    
     size_t gradLocationsNum = 2;
     CGFloat gradLocations[2] = {0.0f, 1.0f};
     CGFloat gradColors[8] = {1.0f,1.0f,1.0f,1.0f,

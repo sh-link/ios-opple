@@ -165,7 +165,7 @@ typedef NS_ENUM(int, SHSearchState) {
 }
 
 - (void)login {
-    
+
     NSString *usernameStor = [AccountControlTool getStoragedUserNameWithMac:[SHRouter currentRouter].mac];
     NSString *passwordStor = [AccountControlTool getStoragedPasswordWithMac:[SHRouter currentRouter].mac];
     
