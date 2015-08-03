@@ -2,18 +2,13 @@
 //  ViewController.m
 //  SHLink
 //
-//  Created by 钱凯 on 15/1/20.
+//  Created by zhen yang on 15/7/7.
 //  Copyright (c) 2015年 Qiankai. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "SHShadowLayer.h"
-#import "SHSquareButton.h"
-#import "SHMenuCell.h"
-#import "SHSlideMenu.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet SHSlideMenu *slide;
 
 @end
 
@@ -21,17 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    CGRect frame = CGRectMake(100, 500, 90, 150);
-    SHMenuCell *cell = [[SHMenuCell alloc] initWithFrame:frame];
-    
-    cell.title = @"查询设备列表";
-    cell.image = [UIImage imageNamed:@"iconTest3"];
-    
-    [self.view addSubview:cell];
-    
-    _slide.menuArray = @[@"PPPOE",@"DHCP",@"静态IP",@"一个",@"two",@"three"];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,16 +24,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:animated];
-    
-}
+/*
+#pragma mark - Navigation
 
-- (IBAction)tap:(id)sender {
-    
-    
-    
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end

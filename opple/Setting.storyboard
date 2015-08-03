@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--设置-->
+        <scene sceneID="xra-xk-n6S">
+            <objects>
+                <viewController title="设置" id="nEE-Pt-VvO" customClass="WorkModeInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="90Q-av-L3G"/>
+                        <viewControllerLayoutGuide type="bottom" id="Re5-JT-fGE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7ha-MG-mgL" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="viewTouchDown:" destination="nEE-Pt-VvO" eventType="touchDown" id="LAt-LV-Q6F"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="无线设置" image="wifi_icon" id="Bfh-pW-Had"/>
+                    <connections>
+                        <segue destination="VCj-64-2wP" kind="show" identifier="goToModifyWorkMode" id="Vub-H8-HTK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIV-z3-N5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-416" y="-454"/>
+        </scene>
+        <!--Modify Work Mode View Controller-->
+        <scene sceneID="Kht-uw-izS">
+            <objects>
+                <viewController id="VCj-64-2wP" customClass="ModifyWorkModeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rgk-zG-zJV"/>
+                        <viewControllerLayoutGuide type="bottom" id="x2x-IU-Gv8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F3n-cb-m1h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="t0W-lc-j6K" kind="show" identifier="modifyworkmode2wifilist" id="4ds-k8-Gyk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GJZ-Y1-cLA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-219" y="-1145"/>
+        </scene>
+        <!--Wifi List View Controller-->
+        <scene sceneID="z0W-3h-AZM">
+            <objects>
+                <viewController id="t0W-lc-j6K" customClass="WifiListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Yo-Ue-Mp2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xpb-Np-fTx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ibQ-dJ-TUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzd-9b-JT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121" y="-1182"/>
+        </scene>
+        <!--Pppoe Setting View Controller-->
+        <scene sceneID="rmn-1Y-Ag9">
+            <objects>
+                <viewController storyboardIdentifier="pppoeVC" id="BbR-b4-QNP" customClass="PppoeSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pyL-p5-Jeq"/>
+                        <viewControllerLayoutGuide type="bottom" id="HlM-gK-TZB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="11G-fc-tNm" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="viewTouchDown:" destination="BbR-b4-QNP" eventType="touchDown" id="Vq0-pM-FFo"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9WU-uO-YEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="-566"/>
+        </scene>
+        <!--Dhcp Setting View Controller-->
+        <scene sceneID="JjG-pi-7XJ">
+            <objects>
+                <viewController storyboardIdentifier="dhcpVC" id="aEy-bG-JCe" customClass="DhcpSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EP6-9H-4zc"/>
+                        <viewControllerLayoutGuide type="bottom" id="XA7-up-uoo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s4H-Kj-2FR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tAp-CH-bM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="245"/>
+        </scene>
+        <!--Static Ip Setting View Controller-->
+        <scene sceneID="cNn-HT-uM6">
+            <objects>
+                <viewController storyboardIdentifier="staticVC" id="Aci-dP-Mpj" customClass="StaticIpSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OtB-cf-Vtd"/>
+                        <viewControllerLayoutGuide type="bottom" id="HtH-Jx-joG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vD8-dk-vMK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBj-RS-YLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="970"/>
+        </scene>
+        <!--wan口设置-->
+        <scene sceneID="ZWF-mH-WAX">
+            <objects>
+                <viewController title="wan口设置" id="gWZ-gz-Qbz" customClass="WanSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0zG-kN-Ub6"/>
+                        <viewControllerLayoutGuide type="bottom" id="QNW-Ub-gLG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VFM-fk-3bB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="wan口设置" image="wifi_icon" id="B0a-aX-6wl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gE3-CO-jW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-233" y="245"/>
+        </scene>
+        <!--lan口设置-->
+        <scene sceneID="a5k-o9-T2L">
+            <objects>
+                <viewController id="Pwo-Ln-zcY" customClass="LanSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vhf-2w-RH8"/>
+                        <viewControllerLayoutGuide type="bottom" id="KCg-5m-s9q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eX6-hW-mvu" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入ip地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08H-dC-iSX" customClass="SHTextField">
+                                <rect key="frame" x="36" y="60" width="528" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jIm-62-SNt"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="ipDidEndOnExit:" destination="Pwo-Ln-zcY" eventType="editingDidEndOnExit" id="0F4-Kh-Obh"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入mask掩码地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uU7-z8-gj7" customClass="SHTextField">
+                                <rect key="frame" x="36" y="110" width="528" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ej1-dW-Xaw"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="maskDidEndOnExit:" destination="Pwo-Ln-zcY" eventType="editingDidEndOnExit" id="dDE-Ok-sJk"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTy-Yg-6dT" customClass="SHRectangleButton">
+                                <rect key="frame" x="37" y="180" width="526" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="YKi-XR-qT2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="确定修改">
+                                    <color key="titleColor" red="0.25882352939999997" green="0.65490196079999996" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ok:" destination="Pwo-Ln-zcY" eventType="touchUpInside" id="LIl-nR-0nY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="08H-dC-iSX" secondAttribute="trailing" constant="20" id="LXK-9t-tBu"/>
+                            <constraint firstItem="MTy-Yg-6dT" firstAttribute="top" secondItem="uU7-z8-gj7" secondAttribute="bottom" constant="30" id="Z80-jO-qk1"/>
+                            <constraint firstItem="MTy-Yg-6dT" firstAttribute="leading" secondItem="eX6-hW-mvu" secondAttribute="leadingMargin" constant="21" id="c07-7C-Vyj"/>
+                            <constraint firstItem="uU7-z8-gj7" firstAttribute="leading" secondItem="eX6-hW-mvu" secondAttribute="leadingMargin" constant="20" id="drH-XK-xBJ"/>
+                            <constraint firstItem="08H-dC-iSX" firstAttribute="top" secondItem="vhf-2w-RH8" secondAttribute="bottom" constant="40" id="hZp-7l-bwd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MTy-Yg-6dT" secondAttribute="trailing" constant="21" id="iul-Ix-6NJ"/>
+                            <constraint firstItem="uU7-z8-gj7" firstAttribute="top" secondItem="08H-dC-iSX" secondAttribute="bottom" constant="10" id="pyc-5h-pDc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uU7-z8-gj7" secondAttribute="trailing" constant="20" id="tPX-dW-nWJ"/>
+                            <constraint firstItem="08H-dC-iSX" firstAttribute="leading" secondItem="eX6-hW-mvu" secondAttribute="leadingMargin" constant="20" id="zXK-Lp-UKT"/>
+                        </constraints>
+                        <connections>
+                            <action selector="viewTouchDown:" destination="Pwo-Ln-zcY" eventType="touchDown" id="o0e-Kc-rbD"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="lan口设置" image="wifi_icon" id="thP-J8-6k9"/>
+                    <connections>
+                        <outlet property="confirmButton" destination="MTy-Yg-6dT" id="g28-Kb-E0h"/>
+                        <outlet property="ipTF" destination="08H-dC-iSX" id="koc-iC-a4M"/>
+                        <outlet property="maskTF" destination="uU7-z8-gj7" id="TkY-do-tdi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A14-Tz-myn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-233" y="1020"/>
+        </scene>
+        <!--Setup Tab Bar Controller-->
+        <scene sceneID="ibg-Ev-aXC">
+            <objects>
+                <tabBarController storyboardIdentifier="settingInit" automaticallyAdjustsScrollViewInsets="NO" id="43y-aL-913" customClass="SHSetupTabBarController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="bOs-KR-bBB">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="nEE-Pt-VvO" kind="relationship" relationship="viewControllers" id="rKO-5o-q3N"/>
+                        <segue destination="gWZ-gz-Qbz" kind="relationship" relationship="viewControllers" id="wRX-nJ-d5h"/>
+                        <segue destination="Pwo-Ln-zcY" kind="relationship" relationship="viewControllers" id="aUA-fv-j4a"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsc-P0-Bdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1049" y="-566"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="wifi_icon" width="48" height="33"/>
+    </resources>
+</document>

@@ -2,7 +2,7 @@
 //  ViewController.h
 //  SHLink
 //
-//  Created by 钱凯 on 15/1/20.
+//  Created by zhen yang on 15/7/7.
 //  Copyright (c) 2015年 Qiankai. All rights reserved.
 //
 
@@ -10,6 +10,4 @@
 
 @interface ViewController : UIViewController
 
-
 @end
-

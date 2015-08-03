@@ -11,7 +11,7 @@
 #define arrowHeight 5.0
 
 @implementation SHSlideLayer
-
+//画设置界面那个带尖头的线
 - (void)drawInContext:(CGContextRef)ctx {
     CGContextSetRGBStrokeColor(ctx, 36.0/255.0f,89.0/255.0f,116.0/255.0f,0.8f);
     
