@@ -14,9 +14,7 @@
 		35B7A3B71A70F1E000E909C5 /* SHDeviceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3B61A70F1E000E909C5 /* SHDeviceConnector.m */; };
 		35B7A3BB1A70F6AE00E909C5 /* SHDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */; };
 		35B7A3BE1A70F6C800E909C5 /* SHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B7A3BD1A70F6C800E909C5 /* SHRouter.m */; };
-		35CAB7401A78E23100EA1E16 /* SHSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB73F1A78E23100EA1E16 /* SHSquareButton.m */; };
 		35CAB7431A790F0400EA1E16 /* SHMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB7421A790F0400EA1E16 /* SHMenuCell.m */; };
-		35CAB7461A79C24400EA1E16 /* SHShadowLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB7451A79C24400EA1E16 /* SHShadowLayer.m */; };
 		35CAB7491A7A55B300EA1E16 /* SHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB7481A7A55B300EA1E16 /* SHTextField.m */; };
 		35CAB74C1A7B73D800EA1E16 /* SHSlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB74B1A7B73D800EA1E16 /* SHSlideMenu.m */; };
 		35CAB74F1A7DFC2B00EA1E16 /* SHCarveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAB74E1A7DFC2B00EA1E16 /* SHCarveLayer.m */; };
@@ -173,12 +171,8 @@
 		35B7A3BA1A70F6AE00E909C5 /* SHDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDevice.m; path = Model/SHDevice.m; sourceTree = "<group>"; };
 		35B7A3BC1A70F6C800E909C5 /* SHRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHRouter.h; path = Model/SHRouter.h; sourceTree = "<group>"; };
 		35B7A3BD1A70F6C800E909C5 /* SHRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHRouter.m; path = Model/SHRouter.m; sourceTree = "<group>"; };
-		35CAB73E1A78E23100EA1E16 /* SHSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHSquareButton.h; path = Views/SHSquareButton.h; sourceTree = "<group>"; };
-		35CAB73F1A78E23100EA1E16 /* SHSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHSquareButton.m; path = Views/SHSquareButton.m; sourceTree = "<group>"; };
 		35CAB7411A790F0400EA1E16 /* SHMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMenuCell.h; path = Views/SHMenuCell.h; sourceTree = "<group>"; };
 		35CAB7421A790F0400EA1E16 /* SHMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMenuCell.m; path = Views/SHMenuCell.m; sourceTree = "<group>"; };
-		35CAB7441A79C24400EA1E16 /* SHShadowLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHShadowLayer.h; path = Views/SHShadowLayer.h; sourceTree = "<group>"; };
-		35CAB7451A79C24400EA1E16 /* SHShadowLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHShadowLayer.m; path = Views/SHShadowLayer.m; sourceTree = "<group>"; };
 		35CAB7471A7A55B300EA1E16 /* SHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHTextField.h; path = Views/SHTextField.h; sourceTree = "<group>"; };
 		35CAB7481A7A55B300EA1E16 /* SHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHTextField.m; path = Views/SHTextField.m; sourceTree = "<group>"; };
 		35CAB74A1A7B73D800EA1E16 /* SHSlideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHSlideMenu.h; path = Views/SHSlideMenu.h; sourceTree = "<group>"; };
@@ -735,10 +729,6 @@
 				35D40E381A7660FC0055E7CC /* SHRectangleButton.m */,
 				350FBB4F1A83990E00363DBF /* SHSearchRoationLayer.h */,
 				350FBB501A83990E00363DBF /* SHSearchRoationLayer.m */,
-				35CAB73E1A78E23100EA1E16 /* SHSquareButton.h */,
-				35CAB73F1A78E23100EA1E16 /* SHSquareButton.m */,
-				35CAB7441A79C24400EA1E16 /* SHShadowLayer.h */,
-				35CAB7451A79C24400EA1E16 /* SHShadowLayer.m */,
 				35CAB7471A7A55B300EA1E16 /* SHTextField.h */,
 				35CAB7481A7A55B300EA1E16 /* SHTextField.m */,
 				35CAB74A1A7B73D800EA1E16 /* SHSlideMenu.h */,
@@ -1180,7 +1170,6 @@
 				35CAB7431A790F0400EA1E16 /* SHMenuCell.m in Sources */,
 				9D4AFD1E1B1477DC00F31D63 /* AllDeviceHeader.m in Sources */,
 				35EB60461A72443B003C63DB /* Packet.c in Sources */,
-				35CAB7461A79C24400EA1E16 /* SHShadowLayer.m in Sources */,
 				9DD211661B09B74B00F13A93 /* ParentControlDevListViewController.m in Sources */,
 				35D40E2E1A75ED400055E7CC /* WanSettingViewController.m in Sources */,
 				35CAB7581A7E1CBB00EA1E16 /* DhcpSettingViewController.m in Sources */,
@@ -1237,7 +1226,6 @@
 				9DF81EBD1B01E3F200215624 /* SWTableViewCell.m in Sources */,
 				35CAB7491A7A55B300EA1E16 /* SHTextField.m in Sources */,
 				9D5320331B51048E00058C6F /* IPUtil.m in Sources */,
-				35CAB7401A78E23100EA1E16 /* SHSquareButton.m in Sources */,
 				9D7959521B58AE73001A27FA /* RepeaterView.m in Sources */,
 				350FBB4E1A82F47D00363DBF /* SearchViewController.m in Sources */,
 				9D53C2511B3AC7CB00098508 /* MJArgument.m in Sources */,

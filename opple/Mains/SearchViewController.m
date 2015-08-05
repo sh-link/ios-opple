@@ -239,7 +239,6 @@ typedef NS_ENUM(int, SHSearchState) {
 
 /**
  *  Get current connected wifi name.
- *
  *  @return Ssid iphone connected, nil if not found.
  */
 - (NSString *)getCurrentConnectSsid {
